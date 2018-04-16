@@ -3,42 +3,62 @@
 <head>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="learn about your favorite author and get recommends on similar writers">
+    <meta name="description" content="learn about your favorite book and get recommends on similar books">
 	<title>Book Friend</title>
-	<link rel="stylesheet" type="text/css" href="index.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:800i|Montserrat:600" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+
 </head>
 <body>
-	<nav>
-		<ul>
-			<li><a href="" title=""></a></li>
+	<nav role="navigation">
+		<ul >
+			<li class="nav-item"><a href="#home" class="nav-btn">home</a></li>
+			<li class="nav-item"><a href="#book-search-results" class="nav-btn">info view</a></li>
+			<li class="nav-item"><a href="#recommendations" class="nav-btn">recommendations</a></li>
 		</ul>
 	</nav>
-	<<header id="header" class="">
+	<header id="header" class="logo">
 		<h1>Book Friend</h1>
 	</header>
 	<main class="container">
 		<section role="region" class="home-view">
-			<div class="book">
-				
+			<p>Welcome to Book Friend! It can tell you all about any book you either love or are interested in and provide you with a curated list of books you might like to read. You'll never have to ask yourself "what do I read now?"</p>
+			<div class="book-search">
+				<form id="js-search-form" class="search-form">
+				<fieldset>
+				  <legend>Enter a book title</legend>
+				  <input type="text" name="search-bar" placeholder="search author" required>
+				  <input type="submit" name="submit">
+				</fieldset>
+			</form>
 			</div>
 		</section>
 		<section role="region" class="book-search-results">
 			<div class="book-info-view">
 				<h2 class="book-title">Book Title</h2>
 				<h3>author name</h3>
-				<<img src=# alt="book cover">
+				<img src="" alt="book cover">
 				<a href="#store">Buy the Book</a>
 				<a href="#recommendations" title="">Get recommendations</a>
 			</div>
 			<div class="book-data">
 				<h3>Book synopsis</h3>
 				<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-				<h3>ABout the Author</h3>
+
+				<h3>About the Author</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 			</div>
 		</section>
-		<section role="region" class="home-view">
-			<div class="book-info-view">
-				
+		<section role="region" class="recommendations">
+			<div class="recommended-book-view">
+				<ul>
+					<li>book 1</li>
+					<li>book 2</li>
+					<li>book 3</li>
+					<li>book 4</li>
+					<li>book 5</li>
+				</ul>
 			</div>
 		</section>
 
