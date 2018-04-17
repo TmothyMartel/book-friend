@@ -22,6 +22,8 @@
 		<h1>Book Friend</h1>
 	</header>
 	<main class="container" role="main">
+
+		<!--  Home View screen -->
 		<section role="region" class="home-view">
 			<div class="app-introduction">
 				<p>Welcome to Book Friend! It can tell you all about any book you either love or are interested in and provide you with a curated list of books you might like to read. You'll never have to ask yourself "what do I read now?"</p>
@@ -36,6 +38,9 @@
 			</form>
 			</div>
 		</section>
+		<!-- end home view -->
+
+        <!--  Book data display screen -->
 
 		<section role="region" class="book-view">
 			<div class="book-search-results">
@@ -56,16 +61,26 @@
 			</div>
 		</section>
 
+		<!-- end data-screen -->
+
+		<!--  search results -->
+
 		<section role="region" class="recommend-view">
 			<div class="recommendations">
 				<h3>It you liked: <em>'book-title'</em> than you might also like some of these as well!</h3>
 					<p>click one that sparks your interest</p>
 				<ul>
-					<li><img class="book-cover" src="place-holder.png" alt="book cover">book 1</li>
-					<li><img class="book-cover" src="place-holder.png" alt="book cover"><p>book 2</p></li>
-					<li><img class="book-cover" src="place-holder.png" alt="book cover"><p>book 3</p></li>
-					<li><img class="book-cover" src="place-holder.png" alt="book cover"><p>book 4</p></li>
-					<li><img class="book-cover" src="place-holder.png" alt="book cover"><p>book 5</p></li>
+					<div class="row">
+						<li class="col"><img class="book-cover" src="place-holder.png" alt="book cover"><p>book 1</p></li>
+						<li class="col"><img class="book-cover" src="place-holder.png" alt="book cover"><p>book 2</p></li>
+						<li class="col"><img class="book-cover" src="place-holder.png" alt="book cover"><p>book 1</p></li>
+				    </div>
+				    <div class="row">
+						<li class="col"><img class="book-cover" src="place-holder.png" alt="book cover"><p>book 1</p></li>
+						<li class="col"><img class="book-cover" src="place-holder.png" alt="book cover"><p>book 1</p></li>
+						<li class="col"><img class="book-cover" src="place-holder.png" alt="book cover"><p>book 2</p></li>
+				    </div>
+
 				</ul>
 			</div>
 		</section>
