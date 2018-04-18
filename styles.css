@@ -141,9 +141,9 @@ footer {
  .row::after {
   display: table;
   content: '';
+}
 
-
-@media only screen and (min-width: 640px) {
+@media screen and (max-width: 640px) {
   .col {
     width: 50%;
   }
@@ -157,7 +157,8 @@ footer {
 	}
 }
 
-@media only screen and (max-width: 400px) {
+@media screen and (max-width: 400px) {
+ 
   .col {
     width: 100%;
   }
