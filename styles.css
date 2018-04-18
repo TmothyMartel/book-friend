@@ -53,8 +53,8 @@ fieldset {
 	font-size: 1.25rem;
 	color: #fff;
 	text-shadow: 1px 1px black;
-	border-bottom: 2px solid #efefef;
-	background-color: rgba(0, 94, 158, 0.9);
+	border-bottom:  1px solid #014090;
+	background: linear-gradient(to right, rgba(0, 94, 158, 1), rgba(0, 95, 160, .8));
 }
 .logo h1 {
 	margin: 0;
@@ -69,9 +69,9 @@ fieldset {
 
 }
 
-.app-introduction {
+.app-introduction, .book-search {
 	letter-spacing: 1px;
-    border: 1px solid #efefef;
+    border: 1px solid #0074c3;
     color: #eef2f5;
     text-shadow: 1.25px 1.75px #000;
     background-color: #3680b3;
@@ -109,7 +109,7 @@ footer {
 	letter-spacing: 2px;
     text-shadow: 1px 1px #000;
 	overflow: hidden;
-	background-color: rgba(0, 0, 0, .9);
+	background-color: rgba(0, 10, 20, .9);
 	color: #eef2f5;
 }
 
@@ -123,11 +123,17 @@ footer {
   padding-right: 20px;
 }
 
+.col-2 {
+	float: left;
+	width: 45%;
+	margin: 20px 15px;
+}
+
 .col {
   float: left;
   padding-left: 1.046666%;
   padding-right: 1.046666%;
-  width: 100%;
+   width: 33.33%;
 }
 
 /* Clearfix */
@@ -137,23 +143,25 @@ footer {
   content: '';
 
 
-/****   Media Queries ******/
-@media only screen and (min-width: 500px) {
+@media only screen and (min-width: 640px) {
   .col {
     width: 50%;
+  }
+
+  .col-2 {
+  	 width: 100%;
   }
 
   .logo {
 	font-size: 1.75rem;
 	}
-
-  
 }
 
-@media only screen and (min-width: 700px) {
+@media only screen and (max-width: 400px) {
   .col {
-    width: 33.33%;
+    width: 100%;
   }
+
 
   .logo {
   	font-size: 2rem;
@@ -161,4 +169,3 @@ footer {
 }
 
 
-} 
