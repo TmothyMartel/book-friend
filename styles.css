@@ -48,17 +48,18 @@ fieldset {
     box-shadow: 0px 0px 13px 3px rgba(0, 0, 0, 0.25);
 }
 
-.logo {
-	font-family: 'Fira Sans Condensed', sans-serif;
-	font-size: 1.25rem;
-	color: #fff;
-	text-shadow: 1px 1px black;
+.banner {
+	
 	border-bottom:  1px solid #014090;
 	background: linear-gradient(to right, rgba(0, 94, 158, 1), rgba(0, 95, 160, .8));
+	padding-bottom: 10px;
 }
-.logo h1 {
+.logo {
+	font-family: 'Fira Sans Condensed', sans-serif;
+	font-size: 2rem;
+	color:  #eef2f5;
+	text-shadow: 1px 1px black;
 	margin: 0;
-	text-align: left;
 	padding: 10px 10px 10px 30px;
 }
 
@@ -69,14 +70,17 @@ fieldset {
 
 }
 
-.app-introduction, .book-search {
+.card {
 	letter-spacing: 1px;
     border: 1px solid #0074c3;
     color: #eef2f5;
     text-shadow: 1.25px 1.75px #000;
-    background-color: #3680b3;
+    background-color:  rgba(54, 128, 179, .9);
     border-radius: 60px 20px 40px 20px;
 	padding: 25px 40px;
+}
+
+.app-introduction {
 	text-align: left;
 	font-size: 30px;
 }
@@ -85,24 +89,33 @@ fieldset {
 	width: 65%;
 	margin: 20px auto;
 }
-.header-search-bar {
-	width: 20%;
-	display: none;
-}
 
 .body-search-bar {
-	margin-top: 20px;
-	width: 100%;
-    padding: 20px;
+    width: 25%;
+    font-size: 12px;
+    padding: 10px;
 }
 
 .submit-button {
-	margin-top: 17px;
-    padding: 20px;
-    width: 100%;
+      /* margin-top: 10px; */
+    /* margin-right: 20px; */
+    padding: 5px 5px 5px 5px;
+    width: 10%;
+    color: #eef2f5;
+    text-shadow: 1px 1px #000;
     border: none;
     border-radius: 2%;
-    background: #0ac734;
+    background: #00af70;
+    font-size: 14px;
+}
+
+.additional-info {
+	line-height: 2;
+}
+
+.recommendations {
+	width: 70%;
+	margin: 20px auto;
 }
 
 footer {
@@ -122,6 +135,11 @@ footer {
   padding-left: 20px;
   padding-right: 20px;
 }
+.card-col {
+	float: left;
+	width: 45%;
+	margin: 20px;
+}
 
 .col-2 {
 	float: left;
@@ -131,22 +149,28 @@ footer {
 
 .col {
   float: left;
-  padding-left: 1.046666%;
-  padding-right: 1.046666%;
+  padding-left: 1%;
+  padding-right: 1%;
    width: 33.33%;
 }
 
 /* Clearfix */
- .row::before,
- .row::after {
+ .clearfix::before,
+ .clearfix::after {
   display: table;
+  clear: both;
   content: '';
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 700px) {
   .col {
     width: 50%;
   }
+
+  .card-col {
+	width: 100%;
+	margin: 0;
+}
 
   .col-2 {
   	 width: 100%;
@@ -154,6 +178,23 @@ footer {
 
   .logo {
 	font-size: 1.75rem;
+	}
+
+	.home-view {
+		margin: 0;
+		padding: 0;
+		width: 100%;
+	}
+
+	.body-search-bar {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+  }
+
+   .submit-button {
+    margin-top: 10px;
+    width: 40%;
 	}
 }
 
@@ -165,7 +206,7 @@ footer {
 
 
   .logo {
-  	font-size: 2rem;
+  	font-size: 1.25rem;
   }
 }
 
