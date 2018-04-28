@@ -23,7 +23,7 @@
 					<h1 class="logo">Book Friend</h1>
 					<fieldset>
 						<input class="body-search-bar" type="text" name="search-bar" placeholder="Enter a book title" required>
-						<button class="submit-button" type="submit" name="Book information">Book Information</button>
+						<button class="submit-button" type="submit" name="Book information">Search</button>
 						<button class="submit-button" type="submit" name="Recommendations">recommendations</button>
 					</fieldset>
 				</form>
@@ -47,11 +47,11 @@
 						<img class="book-cover" src="place-holder.png" alt="book cover">
 						<h2 class="book-title">Neuromancer</h2>
 						<h3>William Gibson</h3>
-						<button  class="item btn">Buy this Book</button>
+						<button  class="item submit-button">Buy this Book</button>
 						<ul>
-							<li class="additional-info"> publisher: "Penguin"</li>
-							<li class="additional-info"> pageCount: 288</li>
-							<li class="additional-info"> categories: "Fiction / Science Fiction / Hard Science Fiction",
+							<li class="additional-info"> Publisher: "Penguin"</li>
+							<li class="additional-info"> PageCoPunt: 288</li>
+							<li class="additional-info"> Categories: "Fiction / Science Fiction / Hard Science Fiction",
 								"Fiction / Science Fiction / Cyberpunk",
 								"Fiction / Thrillers / Technological"
 							</li>
@@ -60,11 +60,10 @@
 					<div class="book-data col-2">
 						<h3>Book synopsis</h3>
 						<p>Winner of the Hugo, Nebula, and Philip K. Dick Awards, <i>Neuromancer</i> is a science fiction masterpiece—a classic that ranks as one of the twentieth century’s most potent visions of the future.</b><br><br>Case was the sharpest data-thief in the matrix—until he crossed the wrong people and they crippled his nervous system, banishing him from cyberspace. Now a mysterious new employer has recruited him for a last-chance run at an unthinkably powerful artificial intelligence. With a dead man riding shotgun and Molly, a mirror-eyed street-samurai, to watch his back, Case is ready for the adventure that upped the ante on an entire genre of fiction.<br><br><i>Neuromancer</i> was the first fully-realized glimpse of humankind’s digital future—a shocking vision that has challenged our assumptions about technology and ourselves, reinvented the way we speak and think, and forever altered the landscape of our imaginations.</p>
-						
 					</div>
-				</div>
-				<div class="recommendations card card-col">
-					<h3>It you liked: <em>'book-title'</em> than you might also like some of these as well!</h3>
+				
+				<div class="clearfix">
+					<h3>If you liked: <em>'book-title'</em> than you might also like some of these as well!</h3>
 					<p>click one that sparks your interest</p>
 					<ul class="clearfix">
 						<div class="row clearfix">
@@ -78,9 +77,6 @@
 								<p>Snow Crash</p>
 								<p>Snow Crash is a science fiction novel by American writer Neal Stephenson</p>
 							</li>
-							
-						</div>
-						<div class="row clearfix">
 							<li class="col-2">
 								<img class="book-cover" src="place-holder.png" alt="book cover">
 								<p>Count Zero</p>
@@ -93,8 +89,9 @@
 							</li>
 						</div>
 					</ul>
-					<button  class="item btn">get more recommendations</button>
-				</div>
+					<button  class="item submit-button">More recommendations</button>
+				  </div>
+				 
 			</section>
 			<!-- end data-screen -->
 			<!--  search results -->
