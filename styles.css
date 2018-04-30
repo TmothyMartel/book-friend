@@ -2,6 +2,10 @@
 	box-sizing: border-box;
 }
 
+nav {
+	display: none;
+}
+
 body {
 	font-family: 'Montserrat', sans-serif;
 	text-align: center;
@@ -24,13 +28,13 @@ fieldset {
   margin: 0;
 }
 
-.book-view {
+/* .book-view {
 	display: none;
 }
 
 .recommend-view {
 	display: none;
-}
+} */
 
 .nav-item {
 	display: inline;
@@ -93,13 +97,13 @@ fieldset {
 	margin: 20px auto;
 }
 
-.body-search-bar {
+.js-search-bar {
     width: 25%;
     font-size: 12px;
     padding: 10px;
 }
 
-.submit-button {
+.button {
       /* margin-top: 10px; */
     /* margin-right: 20px; */
     padding: 10px;
@@ -107,13 +111,24 @@ fieldset {
     text-shadow: 1px 1px #000;
     border: none;
     border-radius: 2%;
-    background: #00af70;
+    background: #00b19a;
     font-size: 14px;
+}
+
+.button:hover {
+	box-shadow: 1px 1px 10px #00b19a;
+    color: #fffffa;
+    cursor: pointer;
 }
 
 .additional-info {
 	line-height: 1.4;
     font-size: 20px;
+}
+
+.book-synopsis {
+	height: 140px;
+    overflow: hidden;
 }
 
 .recommendations {

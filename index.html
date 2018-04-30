@@ -22,9 +22,9 @@
 				<form id="js-search-form" class="search-form">
 					<h1 class="logo">Book Friend</h1>
 					<fieldset>
-						<input class="body-search-bar" type="text" name="search-bar" placeholder="Enter a book title" required>
-						<button class="submit-button" type="submit" name="Book information">Search</button>
-						<button class="submit-button" type="submit" name="Recommendations">recommendations</button>
+						<input class="js-search-bar" type="text" name="search-bar" placeholder="Enter a book title" required>
+						<button class="search button" type="submit" name="Book information">Search</button>
+						<button class="recommend button" type="submit" name="Recommendations">Recommendations</button>
 					</fieldset>
 				</form>
 			</div>
@@ -46,47 +46,25 @@
 						
 						<img class="book-cover" src="place-holder.png" alt="book cover">
 						<h2 class="book-title">Neuromancer</h2>
-						<h3>William Gibson</h3>
+						<h3 class="book-author">William Gibson</h3>
 						<button  class="item submit-button">Buy this Book</button>
 						<ul>
-							<li class="additional-info"> Publisher: "Penguin"</li>
-							<li class="additional-info"> PageCoPunt: 288</li>
-							<li class="additional-info"> Categories: "Fiction / Science Fiction / Hard Science Fiction",
-								"Fiction / Science Fiction / Cyberpunk",
-								"Fiction / Thrillers / Technological"
+							<li class="additional-info"> Publisher: <span class="book-publisher"></span></li>
+							<li class="additional-info"> Page Count:<span class="book-pages"></span></li>
+							<li class="additional-info"> Categories: <span class="book-category"></span>
 							</li>
 						</ul>
 					</div>
 					<div class="book-data col-2">
 						<h3>Book synopsis</h3>
-						<p>Winner of the Hugo, Nebula, and Philip K. Dick Awards, <i>Neuromancer</i> is a science fiction masterpiece—a classic that ranks as one of the twentieth century’s most potent visions of the future.</b><br><br>Case was the sharpest data-thief in the matrix—until he crossed the wrong people and they crippled his nervous system, banishing him from cyberspace. Now a mysterious new employer has recruited him for a last-chance run at an unthinkably powerful artificial intelligence. With a dead man riding shotgun and Molly, a mirror-eyed street-samurai, to watch his back, Case is ready for the adventure that upped the ante on an entire genre of fiction.<br><br><i>Neuromancer</i> was the first fully-realized glimpse of humankind’s digital future—a shocking vision that has challenged our assumptions about technology and ourselves, reinvented the way we speak and think, and forever altered the landscape of our imaginations.</p>
+						<p id="book-description"></p>
 					</div>
 				
 				<div class="clearfix">
 					<h3>If you liked: <em>'book-title'</em> than you might also like some of these as well!</h3>
 					<p>click one that sparks your interest</p>
 					<ul class="clearfix">
-						<div class="row clearfix">
-							<li class="col-2">
-								<img class="book-cover" src="place-holder.png" alt="book cover">
-								<p>All Tomorrow's Parties</p>
-								<p>All Tomorrow's Parties is a science fiction novel by American-Canadian writer William Gibson</p>
-							</li>
-							<li class="col-2">
-								<img class="book-cover" src="place-holder.png" alt="book cover">
-								<p>Snow Crash</p>
-								<p>Snow Crash is a science fiction novel by American writer Neal Stephenson</p>
-							</li>
-							<li class="col-2">
-								<img class="book-cover" src="place-holder.png" alt="book cover">
-								<p>Count Zero</p>
-								<p>Count Zero is a science fiction novel by American-Canadian writer William Gibson</p>
-							</li>
-							<li class="col-2">
-								<img class="book-cover" src="place-holder.png" alt="book cover">
-								<p>Mona Lisa Overdrive</p>
-								<p>Mona Lisa Overdrive is a science fiction novel by American-Canadian writer William Gibson</p>
-							</li>
+						<div class="row results clearfix">
 						</div>
 					</ul>
 					<button  class="item submit-button">More recommendations</button>
@@ -100,39 +78,7 @@
 					<h3>It you liked: <em>'book-title'</em> than you might also like some of these as well!</h3>
 					<p>click one that sparks your interest</p>
 					<ul>
-						<div class="row clearfix">
-							<li class="col">
-								<a><img class="book-cover" src="http://books.google.com/books/content?id=Bd_UZAdvUDIC&printsec=frontcover&img=1&zoom=5&edge=curl&imgtk=AFLRE716a0ZNwdiwVjgNviVBk718c4pwXcweQAVnDshJyM7KptfxLN9paftTkOMMPhjc9pIdrLVqpJv3KrFLQ8Z-Tl2G3ZJq-Arqa1_1WWeU9QdvSpDseZPAhmqsYCWG609QlvwkaGh2&source=gbs_api" alt="book cover"></a>
-								<p>Neuromancer</p>
-								<p>brief description of book shown</p>
-							</li>
-							<li class="col">
-								<img class="book-cover" src="place-holder.png" alt="book cover">
-								<p>book 2</p>
-								<p>Brief description of book</p>
-							</li>
-							<li class="col">
-								<img class="book-cover" src="place-holder.png" alt="book cover">
-								<p>book 1</p>
-								<p>Brief description of book</p>
-							</li>
-						</div>
-						<div class="row clearfix">
-							<li class="col">
-								<img class="book-cover" src="place-holder.png" alt="book cover">
-								<p>book 1</p>
-								<p>Brief description of book</p>
-							</li>
-							<li class="col">
-								<img class="book-cover" src="place-holder.png" alt="book cover">
-								<p>book 1</p>
-								<p>Brief description of book</p>
-							</li>
-							<li class="col">
-								<img class="book-cover" src="place-holder.png" alt="book cover">
-								<p>book 2</p>
-								<p>Brief description of book</p>
-							</li>
+						<div class=" results clearfix">
 						</div>
 					</ul>
 				</div>
