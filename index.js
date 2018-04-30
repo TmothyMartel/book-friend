@@ -36,7 +36,7 @@ $.ajax({
 function resultsRender(result) {
   return `
           
-              <li class="col-2">
+              <li>
                 <img class="book-cover" src="${result.volumeInfo.imageLinks.thumbnail}" alt="book cover">
                 <p class="book-title">${result.volumeInfo.title}</p>
                 <p class="book-synopsis">${result.volumeInfo.description}</p>
