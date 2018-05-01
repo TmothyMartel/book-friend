@@ -1,5 +1,8 @@
 'use strict'
 
+let state = {
+  books: []
+}
 function googleApiSearch(searchTerm, callback) {
     $.ajax({
         url: "https://www.googleapis.com/books/v1/volumes",
@@ -12,7 +15,8 @@ function googleApiSearch(searchTerm, callback) {
             console.log('error', error);
         },
         success: function(data) {
-            showGoogleBooksResults(data);
+            state.books = data.items;
+            showGoogleBooksResults();
         },
         type: 'GET'
     });
@@ -33,15 +37,15 @@ function tastediveApiSearch(tastediveSearchTerm) {
     });
 }
 
-function resultsRender(result) {
+function resultsRender(result, index) {
     // $('.list-book-cover').attr('src', `${result.volumeInfo.imageLinks.thumbnail}`);
     // $('.list-book-title').text(`${result.volumeInfo.title}`);
     // $('.list-book-synopsis').text(`${result.volumeInfo.description}`);
     return `
           <li>
-              <button id="js-book-view" class="book-info-link">
+              <div class="js-book-view book-info-link" data-index="${index}">
               <img class="list-book-cover js-book-view-link" src="${result.volumeInfo.imageLinks.thumbnail}" alt="image of book's cover">
-              </button>
+              </div>
               <p class="list-book-title">${result.volumeInfo.title}</p>
               <p class="list-book-synopsis">${result.volumeInfo.description}</p>
           </li>
@@ -60,8 +64,11 @@ function bookInfoViewRender(result) {
 
 function showBookView() {
   console.log("ready")
-$('#js-book-view').on('click', event => {
+$('.js-book-view').on('click', event => {
    event.preventDefault();
+   let index = $(event.currentTarget).attr('data-index');
+    const bookViewResult = state.books[index].volumeInfo;
+    bookInfoViewRender(bookViewResult);
     $('.book-view').show();
     $('.home-view').hide();
     $('.search-result-view').hide();
@@ -69,11 +76,9 @@ $('#js-book-view').on('click', event => {
 }
 
 
-function showGoogleBooksResults(data) {
-    const bookViewResult = data.items[0].volumeInfo;
-    bookInfoViewRender(bookViewResult);
-    const results = data.items.map((item, index) => resultsRender(item));
-    $('.results').prop('hidden', false).append(results);
+function showGoogleBooksResults() {
+    const results = state.books.map((item, index) => resultsRender(item, index));
+    $('.results').prop('hidden', false).html(results);
     showBookView();
 }
 
