@@ -2,11 +2,20 @@
 	box-sizing: border-box;
 }
 
+nav {
+	display: none;
+}
+
+a {
+	text-decoration: none;
+}
+
 body {
 	font-family: 'Montserrat', sans-serif;
 	text-align: center;
-	background: url('images/bookcover.png') no-repeat;
-	background-size: cover;
+	background-color: rgba(81, 118, 121, 0.69);
+	/* background: url('images/bookcover.png') no-repeat;
+	background-size: cover; */
 }
 
 ul {
@@ -27,7 +36,7 @@ fieldset {
 	display: none;
 }
 
-.recommend-view {
+.search-result-view {
 	display: none;
 }
 
@@ -42,9 +51,10 @@ fieldset {
 
 .container {
 	
-	min-height: 650px;
+	min-height: 750px;
 	margin: 0 auto;
-	background-color: rgba(239, 239, 239, .2);
+	/* background-color: rgba(239, 239, 239, .2); */
+	
     box-shadow: 0px 0px 13px 3px rgba(0, 0, 0, 0.25);
 }
 
@@ -74,10 +84,10 @@ fieldset {
 	letter-spacing: 1px;
     border: 1px solid #0074c3;
     color: #eef2f5;
-    text-shadow: 1.25px 1.75px #000;
-    background-color:  rgba(54, 128, 179, .9);
+    background-color: rgba(32, 113, 169, 0.9);
     border-radius: 60px 20px 40px 20px;
 	padding: 25px 40px;
+	font-size: 1.30rem;
 }
 
 .app-introduction {
@@ -90,27 +100,42 @@ fieldset {
 	margin: 20px auto;
 }
 
-.body-search-bar {
+.js-search-bar {
     width: 25%;
     font-size: 12px;
     padding: 10px;
 }
 
-.submit-button {
-      /* margin-top: 10px; */
-    /* margin-right: 20px; */
-    padding: 5px 5px 5px 5px;
-    width: 10%;
+.btn {
+    padding: 10px;
     color: #eef2f5;
     text-shadow: 1px 1px #000;
     border: none;
     border-radius: 2%;
-    background: #00af70;
+    background: #00b19a;
     font-size: 14px;
 }
 
+.btn:hover {
+	box-shadow: 1px 1px 10px #00b19a;
+    color: #fff;
+    cursor: pointer;
+}
+
+.buy-btn {
+	margin-top: 10px;
+}
+
 .additional-info {
-	line-height: 2;
+	line-height: 1.4;
+    font-size: 20px;
+    padding-bottom: 5px;
+    text-align: left;
+}
+
+.list-book-synopsis {
+	height: 140px;
+    overflow: hidden;
 }
 
 .recommendations {
@@ -136,9 +161,8 @@ footer {
   padding-right: 20px;
 }
 .card-col {
-	float: left;
-	width: 45%;
-	margin: 20px;
+	width: 70%;
+	margin: 20px auto;
 }
 
 .col-2 {
@@ -162,6 +186,13 @@ footer {
   content: '';
 }
 
+.wrapper {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px
+}
+
 @media screen and (max-width: 700px) {
   .col {
     width: 50%;
@@ -171,7 +202,9 @@ footer {
 	width: 100%;
 	margin: 0;
 }
-
+.wrapper {
+	display: block;
+}
   .col-2 {
   	 width: 100%;
   }
@@ -194,7 +227,7 @@ footer {
 
    .submit-button {
     margin-top: 10px;
-    width: 40%;
+  	width: 70%;
 	}
 }
 
