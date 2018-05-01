@@ -34,15 +34,17 @@ $.ajax({
 }
 
 function resultsRender(result) {
-  return `
-          
-              <li>
-                <img class="book-cover" src="${result.volumeInfo.imageLinks.thumbnail}" alt="book cover">
-                <p class="book-title">${result.volumeInfo.title}</p>
-                <p class="book-synopsis">${result.volumeInfo.description}</p>
-              </li>
+    $('.list-book-cover').attr('src', `${result.volumeInfo.imageLinks.thumbnail}`);
+    $('.list-book-title').text(`${result.volumeInfo.title}`);
+    $('.list-book-synopsis').text(`${result.volumeInfo.description}`);
+  // return `
+  //         <li>
+  //               <img class="book-cover" src="${result.volumeInfo.imageLinks.thumbnail}" alt="book cover">
+  //               <p class="book-title">${result.volumeInfo.title}</p>
+  //               <p class="book-synopsis">${result.volumeInfo.description}</p>
+  //         </li>
             
-  `
+  // `
 }
 
 function bookInfoViewRender(result) {
