@@ -6,6 +6,10 @@ nav {
 	display: none;
 }
 
+a {
+	text-decoration: none;
+}
+
 body {
 	font-family: 'Montserrat', sans-serif;
 	text-align: center;
@@ -28,13 +32,13 @@ fieldset {
   margin: 0;
 }
 
-/* .book-view {
+.book-view {
 	display: none;
 }
 
-.recommend-view {
+.search-result-view {
 	display: none;
-} */
+}
 
 .nav-item {
 	display: inline;
@@ -80,8 +84,7 @@ fieldset {
 	letter-spacing: 1px;
     border: 1px solid #0074c3;
     color: #eef2f5;
-    /* text-shadow: 1.25px 1.75px #000; */
-    background-color:  rgba(54, 128, 179, .9);
+    background-color: rgba(32, 113, 169, 0.9);
     border-radius: 60px 20px 40px 20px;
 	padding: 25px 40px;
 	font-size: 1.30rem;
@@ -103,9 +106,7 @@ fieldset {
     padding: 10px;
 }
 
-.button {
-      /* margin-top: 10px; */
-    /* margin-right: 20px; */
+.btn {
     padding: 10px;
     color: #eef2f5;
     text-shadow: 1px 1px #000;
@@ -115,18 +116,24 @@ fieldset {
     font-size: 14px;
 }
 
-.button:hover {
+.btn:hover {
 	box-shadow: 1px 1px 10px #00b19a;
-    color: #fffffa;
+    color: #fff;
     cursor: pointer;
+}
+
+.buy-btn {
+	margin-top: 10px;
 }
 
 .additional-info {
 	line-height: 1.4;
     font-size: 20px;
+    padding-bottom: 5px;
+    text-align: left;
 }
 
-.book-synopsis {
+.list-book-synopsis {
 	height: 140px;
     overflow: hidden;
 }
