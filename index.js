@@ -37,14 +37,6 @@ function resultsRender(result) {
     $('.list-book-cover').attr('src', `${result.volumeInfo.imageLinks.thumbnail}`);
     $('.list-book-title').text(`${result.volumeInfo.title}`);
     $('.list-book-synopsis').text(`${result.volumeInfo.description}`);
-  // return `
-  //         <li>
-  //               <img class="book-cover" src="${result.volumeInfo.imageLinks.thumbnail}" alt="book cover">
-  //               <p class="book-title">${result.volumeInfo.title}</p>
-  //               <p class="book-synopsis">${result.volumeInfo.description}</p>
-  //         </li>
-            
-  // `
 }
 
 function bookInfoViewRender(result) {
@@ -58,9 +50,7 @@ function bookInfoViewRender(result) {
 }
 
                 
-                //<p class="book-title">${result.Similar.Info[0].Name}</p>
-                //<p class="book-description">${result.Similar.Info[0].wTeaser}</p>
-
+               
 function showGoogleBooksResults(data) {
     const bookViewResult = data.items[0].volumeInfo;
     bookInfoViewRender(bookViewResult);
@@ -68,8 +58,14 @@ function showGoogleBooksResults(data) {
   $('.results').prop('hidden', false).html(results);
 }
 
+function tastediveRender(item) {
+   <p class="book-title">${result.Similar.Info[0].Name}</p>
+  <p class="book-description">${result.Similar.Info[0].wTeaser}</p>
+
+}
+
 // function showTasteDiveResults(data) {
-//   const results = resultsRender(data);
+//   const recommendations = tastediveRender(data);
 //   console.log(results);
 //   //.map((item, index) => resultsRender(item));
  
