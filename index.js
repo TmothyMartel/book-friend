@@ -3,7 +3,7 @@
 let state = {
   books: []
 }
-function googleApiSearch(searchTerm, callback) {
+function googleApiSearch(searchTerm) {
     $.ajax({
         url: "https://www.googleapis.com/books/v1/volumes",
         data: {
@@ -38,16 +38,13 @@ function tastediveApiSearch(tastediveSearchTerm) {
 }
 
 function resultsRender(result, index) {
-    // $('.list-book-cover').attr('src', `${result.volumeInfo.imageLinks.thumbnail}`);
-    // $('.list-book-title').text(`${result.volumeInfo.title}`);
-    // $('.list-book-synopsis').text(`${result.volumeInfo.description}`);
     return `
           <li>
               <div class="js-book-view book-info-link" data-index="${index}">
               <img class="list-book-cover js-book-view-link" src="${result.volumeInfo.imageLinks.thumbnail}" alt="image of book's cover">
               </div>
               <p class="list-book-title">${result.volumeInfo.title}</p>
-              <p class="list-book-synopsis">${result.volumeInfo.description}</p>
+              <p class="list-book-synopsis">${result.volumeInfo.description?result.volumeInfo.description:"No description available"}</p>
           </li>
           `
 }
@@ -73,6 +70,14 @@ $('.js-book-view').on('click', event => {
     $('.home-view').hide();
     $('.search-result-view').hide();
 });
+}
+
+function backButtonEventListener() {
+  $('.back-btn').on('click', event => {
+    event.preventDefault();
+    $('.book-view').hide();
+    $('.search-result-view').show();
+  })
 }
 
 
@@ -105,7 +110,7 @@ function userSearchEventListener() {
         const queryTarget = $('#js-search-form').find('input.js-search-bar');
         const query = queryTarget.val();
         queryTarget.val("");
-        googleApiSearch(query, showGoogleBooksResults);
+        googleApiSearch(query);
         $('.search-result-view').show();
         $('.home-view').hide();
         //tastediveApiSearch(query);
@@ -115,7 +120,7 @@ function userSearchEventListener() {
 
 function handleEventListeners() {
   userSearchEventListener();
-  
+  backButtonEventListener();
 }
 
 $(handleEventListeners);
@@ -134,3 +139,7 @@ $('#js-home-view').on('click', function() {
 //     $('.home-view').hide();
 //     $('.book-view').hide();
 // });
+
+// 1. Go back from individual books
+// 2. Add read more after the book text. 
+// 3. Polish details

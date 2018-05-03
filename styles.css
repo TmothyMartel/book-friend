@@ -45,13 +45,11 @@ fieldset {
 }
 
 .item {
-	display: block;
 	margin: 10px auto;
 }
 
 .container {
-	
-	min-height: 750px;
+	min-height: 800px;
 	margin: 0 auto;
 	/* background-color: rgba(239, 239, 239, .2); */
 	
@@ -103,6 +101,7 @@ fieldset {
 .js-search-bar {
     width: 25%;
     font-size: 12px;
+    border-radius: 20px 10px;
     padding: 10px;
 }
 
@@ -111,19 +110,34 @@ fieldset {
     color: #eef2f5;
     text-shadow: 1px 1px #000;
     border: none;
-    border-radius: 2%;
     background: #00b19a;
     font-size: 14px;
+    border-radius: 20px 10px;
 }
 
 .btn:hover {
-	box-shadow: 1px 1px 10px #00b19a;
+	box-shadow: 1px 1px 10px #015449;
     color: #fff;
     cursor: pointer;
 }
 
+.book-title {
+	letter-spacing: 5px;
+}
+
+.synopsis {
+	text-indent: 50px;
+    text-align: left;
+    letter-spacing: 1.6px;
+    line-height: 30px;
+}
+
 .buy-btn {
 	margin-top: 10px;
+}
+
+.book-info-link {
+	cursor: pointer;
 }
 
 .additional-info {
@@ -188,7 +202,7 @@ footer {
 
 .wrapper {
   display: grid;
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px
 }
