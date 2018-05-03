@@ -20,6 +20,11 @@ body {
 
 ul {
 	list-style: none;
+	padding: 0;
+}
+
+li {
+	margin: 20px auto
 }
 
 h2, h3 {
@@ -147,6 +152,17 @@ fieldset {
     text-align: left;
 }
 
+.list-synopsis-container {
+	margin-top: 10px;
+    padding-top: 10px;
+    border: 1px solid #05619f;
+}
+
+.list-book-cover {
+	height: 200px;
+	width: auto;
+}
+
 .list-book-synopsis {
 	height: 140px;
     overflow: hidden;
@@ -175,8 +191,14 @@ footer {
   padding-right: 20px;
 }
 .card-col {
-	width: 70%;
+	width: 80%;
 	margin: 20px auto;
+}
+
+.app-intro-col {
+	float: left;
+	width: 55%;
+	margin: 20px 0;
 }
 
 .col-2 {
@@ -207,19 +229,27 @@ footer {
   grid-gap: 10px
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 800px) {
   .col {
     width: 50%;
   }
 
   .card-col {
 	width: 100%;
-	margin: 0;
+	margin: 10px auto;
 }
+
 .wrapper {
-	display: block;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
 }
-  .col-2 {
+  
+  .card {
+  	padding: 25px;
+  	border-radius: 0;
+  }
+
+  .col-2, .app-intro-col {
   	 width: 100%;
   }
 
@@ -243,14 +273,29 @@ footer {
     margin-top: 10px;
   	width: 70%;
 	}
+
+	.js-search-bar {
+	 width: 100%;
+     margin-bottom: 10px;
+     display: block;
+	}
+
+	.btn {
+	display: block;
+    margin-bottom: 15px;
+    width: 100%;
+	}
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 460px) {
  
   .col {
     width: 100%;
   }
 
+  .wrapper {
+	display: block;
+}
 
   .logo {
   	font-size: 1.25rem;
