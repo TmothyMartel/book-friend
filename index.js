@@ -1,6 +1,9 @@
 'use strict'
 
-function googleApiSearch(searchTerm, callback) {
+let state = {
+  books: []
+}
+function googleApiSearch(searchTerm) {
     $.ajax({
         url: "https://www.googleapis.com/books/v1/volumes",
         data: {
@@ -12,7 +15,8 @@ function googleApiSearch(searchTerm, callback) {
             console.log('error', error);
         },
         success: function(data) {
-            showGoogleBooksResults(data);
+            state.books = data.items;
+            showGoogleBooksResults();
         },
         type: 'GET'
     });
@@ -33,17 +37,14 @@ function tastediveApiSearch(tastediveSearchTerm) {
     });
 }
 
-function resultsRender(result) {
-    // $('.list-book-cover').attr('src', `${result.volumeInfo.imageLinks.thumbnail}`);
-    // $('.list-book-title').text(`${result.volumeInfo.title}`);
-    // $('.list-book-synopsis').text(`${result.volumeInfo.description}`);
+function resultsRender(result, index) {
     return `
           <li>
-              <button id="js-book-view" class="book-info-link">
+              <div class="js-book-view book-info-link" data-index="${index}">
               <img class="list-book-cover js-book-view-link" src="${result.volumeInfo.imageLinks.thumbnail}" alt="image of book's cover">
-              </button>
+              </div>
               <p class="list-book-title">${result.volumeInfo.title}</p>
-              <p class="list-book-synopsis">${result.volumeInfo.description}</p>
+              <p class="list-book-synopsis">${result.volumeInfo.description?result.volumeInfo.description:"No description available"}</p>
           </li>
           `
 }
@@ -60,20 +61,29 @@ function bookInfoViewRender(result) {
 
 function showBookView() {
   console.log("ready")
-$('#js-book-view').on('click', event => {
+$('.js-book-view').on('click', event => {
    event.preventDefault();
+   let index = $(event.currentTarget).attr('data-index');
+    const bookViewResult = state.books[index].volumeInfo;
+    bookInfoViewRender(bookViewResult);
     $('.book-view').show();
     $('.home-view').hide();
     $('.search-result-view').hide();
 });
 }
 
+function backButtonEventListener() {
+  $('.back-btn').on('click', event => {
+    event.preventDefault();
+    $('.book-view').hide();
+    $('.search-result-view').show();
+  })
+}
 
-function showGoogleBooksResults(data) {
-    const bookViewResult = data.items[0].volumeInfo;
-    bookInfoViewRender(bookViewResult);
-    const results = data.items.map((item, index) => resultsRender(item));
-    $('.results').prop('hidden', false).append(results);
+
+function showGoogleBooksResults() {
+    const results = state.books.map((item, index) => resultsRender(item, index));
+    $('.results').prop('hidden', false).html(results);
     showBookView();
 }
 
@@ -100,7 +110,7 @@ function userSearchEventListener() {
         const queryTarget = $('#js-search-form').find('input.js-search-bar');
         const query = queryTarget.val();
         queryTarget.val("");
-        googleApiSearch(query, showGoogleBooksResults);
+        googleApiSearch(query);
         $('.search-result-view').show();
         $('.home-view').hide();
         //tastediveApiSearch(query);
@@ -110,7 +120,7 @@ function userSearchEventListener() {
 
 function handleEventListeners() {
   userSearchEventListener();
-  
+  backButtonEventListener();
 }
 
 $(handleEventListeners);
@@ -129,3 +139,7 @@ $('#js-home-view').on('click', function() {
 //     $('.home-view').hide();
 //     $('.book-view').hide();
 // });
+
+// 1. Go back from individual books
+// 2. Add read more after the book text. 
+// 3. Polish details

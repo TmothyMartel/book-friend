@@ -42,14 +42,13 @@
 				
 			</section>
 			<!-- end home view -->
-
 			<!--  Book data display screen -->
 			<section role="region" id="book-display" class="book-view clearfix">
 				<div class="book-search-results card card-col">
 					<div class="col-2">
 						
 						<img class="book-cover" src="place-holder.png" alt="book cover">
-						<h2 class="book-title">Neuromancer</h2>
+						<h1 class="book-title">Neuromancer</h1>
 						<h3 class="book-author">William Gibson</h3>
 						<button  class="buy-btn btn">Buy this Book</button>
 						<ul>
@@ -61,7 +60,7 @@
 				</div>
 				<div class="book-data col-2">
 					<h3>Book synopsis</h3>
-					<p id="book-description"></p>
+					<p id="book-description" class="synopsis"></p>
 				</div>
 				
 				<div class="clearfix">
@@ -71,6 +70,7 @@
 						<div class="row recommendations clearfix">
 						</div>
 					</ul>
+					<button class="back-btn btn">Go Back</button>
 					<button  class="item btn">More recommendations</button>
 				</div>
 				
@@ -82,23 +82,15 @@
 					<h3>Here are the results of your search for: <em class="book-title"></em></h3>
 					<p>click one that sparks your interest</p>
 					<ul>
-						<div class="wrapper results">
-							<!-- <li>
-								<button id="js-book-view">
-								<img class="list-book-cover js-book-view-link" src="" alt="image of book's cover">
-								</button>
-								<p class="list-book-title"></p>
-								<p class="list-book-synopsis"></p>
-							</li> -->
-					</div>
-				</ul>
-			</div>
-		</section>
-	</main>
-	<footer>
-		<p>&copy;- Timothy Martel - 2018</p>
-	</footer>
-	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-	<script src="index.js"></script>
-</body>
+						<div class="wrapper results"></div>
+					</ul>
+				</div>
+			</section>
+		</main>
+		<footer>
+			<p>&copy;- Timothy Martel - 2018</p>
+		</footer>
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script src="index.js"></script>
+	</body>
 </html>
