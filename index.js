@@ -40,11 +40,14 @@ function tastediveApiSearch(tastediveSearchTerm) {
 function resultsRender(result, index) {
     return `
           <li>
-              <div class="js-book-view book-info-link" data-index="${index}">
-              <img class="list-book-cover js-book-view-link" src="${result.volumeInfo.imageLinks.thumbnail}" alt="image of book's cover">
+              <div class="js-book-view" data-index="${index}">
+               <img class="list-book-cover js-book-view-link" src="${result.volumeInfo.imageLinks.thumbnail}" alt="image of book's cover">
+               <div class="book-info-link list-synopsis-container">
+                 <h3 class="list-book-title">${result.volumeInfo.title}</h3>
+                 <p class="list-book-synopsis">${result.volumeInfo.description?result.volumeInfo.description:"No description available"}</p>
+                 <p><small>click to read more</small>...</p>
               </div>
-              <p class="list-book-title">${result.volumeInfo.title}</p>
-              <p class="list-book-synopsis">${result.volumeInfo.description?result.volumeInfo.description:"No description available"}</p>
+            </div>
           </li>
           `
 }
