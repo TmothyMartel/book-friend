@@ -5,7 +5,7 @@ let state = {
   recommendations: []
 }
 
-function googleApiSearch(searchTerm) {
+function googleApiSearch(searchTerm, callback) {
     $.ajax({
         url: "https://www.googleapis.com/books/v1/volumes",
         data: {
@@ -16,11 +16,7 @@ function googleApiSearch(searchTerm) {
         error: function(error) {
             console.log('error', error);
         },
-        success: function(data) {
-            state.books = data.items;
-             $('.book-title').text(`${searchTerm}`);
-            showGoogleBooksResults();
-        },
+        success:  callback,
         type: 'GET'
     });
 }
@@ -45,7 +41,7 @@ function resultsRender(result, index) {
           <li>
               <div class="js-book-view" data-index="${index}">
                <img class="list-book-cover js-book-view-link" 
-                  src="${result.volumeInfo.hasOwnProperty('imageLinks') ? result.volumeInfo.imageLinks.thumbnail : "No image available"}" 
+                  src="${result.volumeInfo.imageLinks ? result.volumeInfo.imageLinks.thumbnail : "No image available"}" 
                   alt="image of book cover">
                <div class="book-info-link list-synopsis-container">
                  <h3 class="list-book-title shadows">${result.volumeInfo.title}</h3>
@@ -76,6 +72,7 @@ $('.js-book-view').on('click', event => {
     $('.book-view').show();
     $('.home-view').hide();
     $('.search-result-view').hide();
+    $('.tastedive-search-result-view').hide();
 });
 }
 
@@ -84,10 +81,13 @@ function backButtonEventListener() {
     event.preventDefault();
     $('.book-view').hide();
     $('.search-result-view').show();
+    $('.tastedive-search-result-view').show();
   })
 }
 
-function showGoogleBooksResults() {
+function showGoogleBooksResults(data) {
+   state.books = data.items;
+   
     const results = state.books.map((item, index) => resultsRender(item, index));
     $('.results').prop('hidden', false).html(results);
     showBookView();
@@ -99,8 +99,10 @@ function userSearchEventListener() {
         const queryTarget = $('#js-search-form').find('input.js-search-bar');
         const query = queryTarget.val();
         queryTarget.val("");
-        googleApiSearch(query);
+        $('.book-title').text(query);
+        googleApiSearch(query, showGoogleBooksResults);
         $('.search-result-view').show();
+        $('.tastedive-search-result-view').hide();
         $('.home-view').hide();
         $('.book-view').hide();
         //tastediveApiSearch(query);
@@ -109,15 +111,22 @@ function userSearchEventListener() {
 
 // tastedive api functions
 
+function showGoogleBook(data) {
+    state.books = data.items;
+     const bookViewResult = state.books[0].volumeInfo;
+    bookInfoViewRender(bookViewResult);
+    $('.book-view').show();
+    $('.home-view').hide();
+    $('.search-result-view').hide();
+    $('.tastedive-search-result-view').hide();
+}
+
 function showTasteDiveBookView() {
   $('.book-info-link').on('click',  event => {
    event.preventDefault();
    let index = $(event.currentTarget).attr('data-index');
    let title = $(event.currentTarget).find('.list-book-title').text();
-   googleApiSearch(title);
-   //$('.book-view').show();
-   $('.home-view').hide();
-    $('.search-result-view').show();
+   googleApiSearch(title, showGoogleBook);
 });
 }
 
@@ -151,7 +160,9 @@ function userRecommendEventListener() {
         const tDQuery = tDQueryTarget.val();
         tDQueryTarget.val("");
         tastediveApiSearch(tDQuery);
-        $('.search-result-view').show();
+        $('.search-result-view').hide();
+        $('.tastedive-search-result-view').show();
+        $('.results').hide();
         $('.home-view').hide();
         $('.book-view').hide();
       });
@@ -161,6 +172,8 @@ function userRecommendEventListener() {
 
 
 function handleEventListeners() {
+  $('.search-result-view').hide();
+  $('.tastedive-search-result-view').hide();
   userSearchEventListener();
   userRecommendEventListener();
   backButtonEventListener();
@@ -174,6 +187,8 @@ $('#js-home-view').on('click', function() {
     $('.home-view').show();
     $('.book-view').hide();
     $('.search-result-view').hide();
+    $('.tastedive-search-result-view').hide();
+    
 });
 
 
