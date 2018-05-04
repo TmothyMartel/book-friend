@@ -2,7 +2,9 @@
 
 let state = {
   books: [],
-  recommendations: []
+  recommendations: [],
+  lastView: ".home-view",
+  currentView: ".home-view"
 }
 
 function googleApiSearch(searchTerm, callback) {
@@ -69,25 +71,19 @@ $('.js-book-view').on('click', event => {
    let index = $(event.currentTarget).attr('data-index');
     const bookViewResult = state.books[index].volumeInfo;
     bookInfoViewRender(bookViewResult);
-    $('.book-view').show();
-    $('.home-view').hide();
-    $('.search-result-view').hide();
-    $('.tastedive-search-result-view').hide();
+    showPage('.book-view');
 });
 }
 
 function backButtonEventListener() {
   $('.back-btn').on('click', event => {
     event.preventDefault();
-    $('.book-view').hide();
-    $('.search-result-view').show();
-    $('.tastedive-search-result-view').show();
+    showPage(state.lastView);
   })
 }
 
 function showGoogleBooksResults(data) {
    state.books = data.items;
-   
     const results = state.books.map((item, index) => resultsRender(item, index));
     $('.results').prop('hidden', false).html(results);
     showBookView();
@@ -101,11 +97,7 @@ function userSearchEventListener() {
         queryTarget.val("");
         $('.book-title').text(query);
         googleApiSearch(query, showGoogleBooksResults);
-        $('.search-result-view').show();
-        $('.tastedive-search-result-view').hide();
-        $('.home-view').hide();
-        $('.book-view').hide();
-        //tastediveApiSearch(query);
+        showPage('.search-result-view');
     });
 }
 
@@ -115,10 +107,7 @@ function showGoogleBook(data) {
     state.books = data.items;
      const bookViewResult = state.books[0].volumeInfo;
     bookInfoViewRender(bookViewResult);
-    $('.book-view').show();
-    $('.home-view').hide();
-    $('.search-result-view').hide();
-    $('.tastedive-search-result-view').hide();
+    showPage('.book-view');
 }
 
 function showTasteDiveBookView() {
@@ -141,7 +130,7 @@ function tastediveRender(item, index) {
               </div>
             </div>
           </li>
-          `
+          `;
 }
 
 function showTasteDiveResults(data) {
@@ -149,8 +138,6 @@ function showTasteDiveResults(data) {
   const recoResults = state.recommendations.map((item, index) => tastediveRender(item, index));
   $('.td-results').prop('hidden', false).html(recoResults);
  showTasteDiveBookView();
-  
-
 }
 
 function userRecommendEventListener() {
@@ -160,16 +147,20 @@ function userRecommendEventListener() {
         const tDQuery = tDQueryTarget.val();
         tDQueryTarget.val("");
         tastediveApiSearch(tDQuery);
-        $('.search-result-view').hide();
-        $('.tastedive-search-result-view').show();
-        $('.results').hide();
-        $('.home-view').hide();
-        $('.book-view').hide();
+        showPage('.tastedive-search-result-view')
       });
   }
 
-
-
+function showPage(page) {
+  state.lastView = state.currentView;
+  state.currentView = page;
+  $('.search-result-view').hide();
+  $('.tastedive-search-result-view').hide();
+  $('.results').hide();
+  $('.home-view').hide();
+  $('.book-view').hide();
+  $(page).show();
+}
 
 function handleEventListeners() {
   $('.search-result-view').hide();
@@ -179,25 +170,8 @@ function handleEventListeners() {
   backButtonEventListener();
 }
 
-$(handleEventListeners);
-
-
-
 $('#js-home-view').on('click', function() {
-    $('.home-view').show();
-    $('.book-view').hide();
-    $('.search-result-view').hide();
-    $('.tastedive-search-result-view').hide();
-    
+    showPage('.home-view');  
 });
 
-
-// $('#js-recommend-view').on('click', function() {
-//     $('..search-result-view').show();
-//     $('.home-view').hide();
-//     $('.book-view').hide();
-// });
-
-// 1. Go back from individual books
-// 2. Add read more after the book text. 
-// 3. Polish details
+$(handleEventListeners);
