@@ -41,9 +41,11 @@ function resultsRender(result, index) {
     return `
           <li>
               <div class="js-book-view" data-index="${index}">
-               <img class="list-book-cover js-book-view-link" src="${result.volumeInfo.imageLinks.thumbnail}" alt="image of book's cover">
+               <img class="list-book-cover js-book-view-link" 
+                  src="${result.volumeInfo.imageLinks.thumbnail}" 
+                  alt="image of book's cover">
                <div class="book-info-link list-synopsis-container">
-                 <h3 class="list-book-title">${result.volumeInfo.title}</h3>
+                 <h3 class="list-book-title shadows">${result.volumeInfo.title}</h3>
                  <p class="list-book-synopsis">${result.volumeInfo.description?result.volumeInfo.description:"No description available"}</p>
                  <p><small>click to read more</small>...</p>
               </div>
@@ -63,7 +65,6 @@ function bookInfoViewRender(result) {
 }
 
 function showBookView() {
-  console.log("ready")
 $('.js-book-view').on('click', event => {
    event.preventDefault();
    let index = $(event.currentTarget).attr('data-index');
@@ -87,6 +88,7 @@ function backButtonEventListener() {
 function showGoogleBooksResults() {
     const results = state.books.map((item, index) => resultsRender(item, index));
     $('.results').prop('hidden', false).html(results);
+
     showBookView();
 }
 
