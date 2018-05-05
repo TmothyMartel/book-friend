@@ -8,14 +8,17 @@ nav {
 
 a {
 	text-decoration: none;
+	color: #efefef;
+}
+
+a:visited {
+	color: #efefef;
 }
 
 body {
 	font-family: 'Montserrat', sans-serif;
 	text-align: center;
-	background-color: rgba(81, 118, 121, 0.69);
-	/* background: url('images/bookcover.png') no-repeat;
-	background-size: cover; */
+	background-color: rgba(241, 241, 241, 0.8);
 }
 
 ul {
@@ -165,6 +168,7 @@ fieldset {
 
 .list-synopsis-container {
 	margin-top: 10px;
+	min-height: 350px;
     padding-top: 10px;
     border: 1px solid #05619f;
 }
@@ -175,8 +179,10 @@ fieldset {
 }
 
 .list-book-title {
-	font-size: 32px;
+	font-size: 25px;
     letter-spacing: 1px;
+    max-height: 78px;
+    overflow: hidden;
     
 }
 
@@ -200,6 +206,10 @@ footer {
 	overflow: hidden;
 	background-color: rgba(0, 10, 20, .9);
 	color: #eef2f5;
+}
+
+.credit {
+	font-size: 10px;
 }
 
 
@@ -250,7 +260,7 @@ footer {
   grid-gap: 10px
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 930px) {
   .col {
     width: 50%;
   }
@@ -272,12 +282,17 @@ footer {
 
   .col-2, .app-intro-col {
   	 width: 100%;
-  	 margin: 15px;
   }
 
   .logo {
 	font-size: 1.75rem;
 	}
+
+	.list-book-title {
+	font-size: 20px;
+    letter-spacing: 1px;
+    
+}
 
 	.home-view {
 		margin: 0;
@@ -297,19 +312,23 @@ footer {
 	}
 
 	.js-search-bar {
-	 width: 100%;
-     margin-bottom: 10px;
+	 width: 87%;
+	 margin-left: auto;
+     margin-right: auto;
+     margin-bottom: 15px;
      display: block;
 	}
 
 	.btn {
 	display: block;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 15px;
-    width: 100%;
+    width: 87%;
 	}
 }
 
-@media screen and (max-width: 460px) {
+@media screen and (max-width: 530px) {
  
   .col {
     width: 100%;

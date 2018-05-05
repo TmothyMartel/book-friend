@@ -43,7 +43,7 @@ function resultsRender(result, index) {
           <li>
               <div class="js-book-view" data-index="${index}">
                <img class="list-book-cover js-book-view-link" 
-                  src="${result.volumeInfo.imageLinks ? result.volumeInfo.imageLinks.thumbnail : "No image available"}" 
+                  src="${result.volumeInfo.imageLinks ? result.volumeInfo.imageLinks.thumbnail : "place-holder.svg"}" 
                   alt="image of book cover">
                <div class="book-info-link list-synopsis-container">
                  <h3 class="list-book-title shadows">${result.volumeInfo.title}</h3>
@@ -58,11 +58,11 @@ function resultsRender(result, index) {
 function bookInfoViewRender(result) {
     $('.book-cover').attr('src', `${result.imageLinks.thumbnail}`);
     $('.book-title').text(`${result.title}`);
-    $('.book-author').text(`${result.authors}`);
+    $('.book-author').text(`${result.authors?result.authors:"No author listed"}`);
     $('#book-description').text(`${result.description}`);
     $('.book-publisher').text(`${result.publisher}`);
     $('.book-pages').text(`${result.pageCount}`);
-    $('.book-category').text(`${result.categories[0]}`);
+    $('.book-category').text(`${result.categories[0]?result.categories:"unavailable"}`);
 }
 
 function showBookView() {
@@ -85,7 +85,7 @@ function backButtonEventListener() {
 function showGoogleBooksResults(data) {
    state.books = data.items;
     const results = state.books.map((item, index) => resultsRender(item, index));
-    $('.results').prop('hidden', false).html(results);
+    $('.results-view').prop('hidden', false).html(results);
     showBookView();
 }
 
@@ -123,6 +123,7 @@ function tastediveRender(item, index) {
      return `
           <li>
               <div class="js-td-book-view" data-index="${index}">
+              <img class="list-book-cover" src="place-holder.svg" alt="drawing of a book">
                <div class="book-info-link list-synopsis-container">
                  <h3 class="list-book-title shadows">${item.Name}</h3>
                  <p class="list-book-synopsis">${item.wTeaser}</p>
@@ -175,3 +176,12 @@ $('#js-home-view').on('click', function() {
 });
 
 $(handleEventListeners);
+
+
+
+
+// ToDo: 
+//    add functionality to recommendation button onbook view
+//    add functionality to the buy book button
+//    test and fix any emergent bugs.
+//   final style touches ie, fade in info
