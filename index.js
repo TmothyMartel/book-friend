@@ -7,6 +7,7 @@ let state = {
   currentView: ".home-view"
 }
 
+// google book api AJAX request
 function googleApiSearch(searchTerm, callback) {
     $.ajax({
         url: "https://www.googleapis.com/books/v1/volumes",
@@ -23,6 +24,7 @@ function googleApiSearch(searchTerm, callback) {
     });
 }
 
+// tastedive api AJAX request
 function tastediveApiSearch(tastediveSearchTerm) {
     $.ajax({
         url: "https://tastedive.com/api/similar?",
@@ -56,13 +58,15 @@ function resultsRender(result, index) {
 }
 
 function bookInfoViewRender(result) {
-    $('.book-cover').attr('src', `${result.imageLinks.thumbnail}`);
+    $('.book-cover').attr('src', `${result.imageLinks? result.imageLinks.thumbnail : "place-holder.svg" }`);
     $('.book-title').text(`${result.title}`);
-    $('.book-author').text(`${result.authors?result.authors:"No author listed"}`);
+    $('.buy-btn').attr('href', `https://www.barnesandnoble.com/s/${result.title}`);
+    $('.book-author').text(`${result.authors?result.authors : "No author listed"}`);
     $('#book-description').text(`${result.description}`);
-    $('.book-publisher').text(`${result.publisher}`);
-    $('.book-pages').text(`${result.pageCount}`);
-    $('.book-category').text(`${result.categories[0]?result.categories:"unavailable"}`);
+    $('.book-publisher').text(`${result.publisher?result.publisher : "No publisher listed"}`);
+    $('.book-pages').text(`${result.pageCount?result.pageCount : "no page count listed"}`);
+    $('.book-category').text(`${result.categories ? result.categories[0] : "unavailable"}`);
+     
 }
 
 function showBookView() {
@@ -74,6 +78,7 @@ $('.js-book-view').on('click', event => {
     showPage('.book-view');
 });
 }
+
 
 function backButtonEventListener() {
   $('.back-btn').on('click', event => {
@@ -89,6 +94,7 @@ function showGoogleBooksResults(data) {
     showBookView();
 }
 
+// event listener for google books api search button
 function userSearchEventListener() {
     $('#js-search-form').on('click', 'button.search.btn', event => {
         event.preventDefault();
@@ -110,6 +116,7 @@ function showGoogleBook(data) {
     showPage('.book-view');
 }
 
+// clicking on a link in recommend view will show singular book view from google api.
 function showTasteDiveBookView() {
   $('.book-info-link').on('click',  event => {
    event.preventDefault();
@@ -152,6 +159,19 @@ function userRecommendEventListener() {
       });
   }
 
+
+    // render results in single book view
+  
+  function bookViewRecommendEvenListener() {
+      $('.book-view-recommend').on('click', event => {
+        event.preventDefault();
+        const bookTitleQuery = $('.book-title').text();
+        tastediveApiSearch(bookTitleQuery);
+        showPage('.book-view-recommend-results');
+      });
+  }
+
+
 function showPage(page) {
   state.lastView = state.currentView;
   state.currentView = page;
@@ -160,7 +180,8 @@ function showPage(page) {
   $('.results').hide();
   $('.home-view').hide();
   $('.book-view').hide();
-  $(page).show();
+  $('.book-view-recommend-results').hide;
+  $(page).fadeIn(500).show();
 }
 
 function handleEventListeners() {
@@ -169,6 +190,7 @@ function handleEventListeners() {
   userSearchEventListener();
   userRecommendEventListener();
   backButtonEventListener();
+  bookViewRecommendEvenListener();
 }
 
 $('#js-home-view').on('click', function() {

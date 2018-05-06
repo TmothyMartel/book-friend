@@ -158,6 +158,11 @@ fieldset {
 	cursor: pointer;
 }
 
+.book-cover {
+	height: 250px;
+    width: auto;
+}
+
 .additional-info {
 	line-height: 1.4;
     font-size: 20px;
@@ -338,9 +343,7 @@ footer {
 	display: block;
 }
 
-  .logo {
-  	font-size: 1.25rem;
-  }
+ 
 }
 
 
