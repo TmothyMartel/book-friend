@@ -109,6 +109,11 @@ fieldset {
     padding: 10px;
 }
 
+.search.btn {
+	padding-left: 50px;
+	padding-right: 50px;
+}
+
 .btn {
     padding: 10px;
     color: #eef2f5;

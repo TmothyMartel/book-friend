@@ -73,6 +73,7 @@ function bookInfoViewRender(result) {
     bookViewRecommendEvenListener(bookTitleQuery);
 }
 
+// event listener to show individual book information
 function showBookView() {
 $('.js-book-view').on('click', event => {
    event.preventDefault();
@@ -123,8 +124,10 @@ function userSearchEventListener() {
     });
 }
 
-// tastedive api functions
+// Tastedive api functions
 
+//  accesses the single book view from recommend view by
+//  preforming a google book api search with the tastedive result
 function showGoogleBook(data) {
     state.books = data.items;
      const bookViewResult = state.books[0].volumeInfo;
@@ -156,6 +159,7 @@ function tastediveRender(item, index) {
           </li>
           `;
 }
+
 
 function showTasteDiveResults(data) {
   state.recommendations = data.Similar.Results;
