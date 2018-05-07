@@ -1,12 +1,11 @@
 # Bookfriend
 
-[This link](https://tmothymartel.github.io/book-friend/) BookFriend.
+### link to Site
+[BookFriend](https://tmothymartel.github.io/book-friend/) 
 
-Welcome to Book Friend! It can tell you all about any book you either love or are interested in and provide you with a curated list of books you might like to read. You'll never have to ask yourself "what do I read now?:
+Welcome to Book Friend! It can tell you all about any book you either love or are interested in and provide you with a curated list of books you might like to read. You'll never have to ask yourself "what do I read now?
 
-
-
-# Technologies used
+### Technologies used
 
 1. HTML
 1. CSS
