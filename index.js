@@ -65,12 +65,11 @@ function bookInfoViewRender(result) {
     $('.book-title').text(`${result.title}`);
     $('.buy-btn').attr('href', `https://www.barnesandnoble.com/s/${result.title}`);
     $('.book-author').text(`${result.authors?result.authors : "No author listed"}`);
-    $('#book-description').text(`${result.description}`);
+    $('#book-description').text(`${result.description?result.description : "No description available"}`);
     $('.book-publisher').text(`${result.publisher?result.publisher : "No publisher listed"}`);
     $('.book-pages').text(`${result.pageCount?result.pageCount : "no page count listed"}`);
     $('.book-category').text(`${result.categories ? result.categories[0] : "unavailable"}`);
     const bookTitleQuery = `${result.title}`;
-    console.log(bookTitleQuery);
     bookViewRecommendEvenListener(bookTitleQuery);
 }
 
@@ -94,9 +93,15 @@ function backButtonEventListener() {
 
 function showGoogleBooksResults(data) {
    state.books = data.items;
+   if (state.books.length === 0) {
+     const noResult = "Sorry but we could not find anything to match your search."
+      $('.no-result').html(noResult);
+      $('.try-again').html('Please try a new search');
+   } else {
     const results = state.books.map((item, index) => resultsRender(item, index));
     $('.results-view').prop('hidden', false).html(results);
     showBookView();
+  }
 }
 
 // event listener for google books api search button
@@ -105,7 +110,7 @@ function userSearchEventListener() {
         const queryTarget = $('#js-search-form').find('input.js-search-bar');
         const query = queryTarget.val();
         if (query === '') {
-            console.log($('.js-search-bar').val());
+            console.log('invalid search');
           } else {
         event.preventDefault();
         queryTarget.val("");
@@ -154,20 +159,32 @@ function tastediveRender(item, index) {
 
 function showTasteDiveResults(data) {
   state.recommendations = data.Similar.Results;
+   if (state.recommendations.length === 0) {
+     const noResult = "Sorry, but we could not find any recommendations for this title."
+      $('.no-result').html(noResult);
+      $('.try-again').html('Please try a new search');
+   } else {
   const recoResults = state.recommendations.map((item, index) => tastediveRender(item, index));
   $('.td-results').prop('hidden', false).html(recoResults);
  showTasteDiveBookView();
 }
+}
 
+// event listener to run tastedive api search from search bar
 function userRecommendEventListener() {
     $('#js-search-form').on('click', 'button.recommend.btn', event => {
-        event.preventDefault();
         const tDQueryTarget = $('#js-search-form').find('input.js-search-bar');
         const tDQuery = tDQueryTarget.val();
+         if (tDQuery === '') {
+            console.log('invalid search');
+          } else {
+        event.preventDefault();
         tDQueryTarget.val("");
+        $('.book-title').text(tDQuery);
         tastediveApiSearch(tDQuery);
         $('#book-display').show();
         showPage('.tastedive-search-result-view');
+      }
       });
   }
 
