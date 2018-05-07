@@ -175,6 +175,10 @@ fieldset {
     border: 1px solid #05619f;
 }
 
+.list-synopsis-container:hover {
+	border: 1px solid #00b19a;
+}
+
 .list-book-cover {
 	height: 200px;
 	width: auto;
