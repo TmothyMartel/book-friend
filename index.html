@@ -16,7 +16,6 @@
 					<a href="#header" id="js-home-view">
 						<h1 class="logo">Book Friend</h1>
 					</a>
-					
 					<fieldset>
 						<input class="js-search-bar" type="text" name="search-bar" placeholder="Enter a book title" required />
 						<button class="search btn" type="submit" name="Book information">Search</button>
@@ -28,7 +27,6 @@
 		</header>
 		<main class="container" role="main">
 			<!--  Home View screen -->
-
 			<section role="region" class="home-view clearfix">
 				<div class="app-introduction card app-intro-col">
 					<p>Welcome to Book Friend! It can tell you all about any book you either love or are interested in and provide you with a curated list of books you might like to read. You'll never have to ask yourself "what do I read now?"</p>
@@ -36,16 +34,14 @@
 				
 			</section>
 			<!-- end home view -->
-
-			<!--  Book data display screen -->
-			<section role="region" id="book-display" class="book-view clearfix">
-				<div class="book-search-results card card-col">
+			<!--  Book - view -->
+			<section role="region" id="book-display" class=" card card-col clearfix">
+				<div class="book-view book-search-results ">
 					<div class="col-2">
-						
 						<img class="book-cover" src="place-holder.svg" alt="book cover">
-						<h2 class="book-title shadows">Neuromancer</h2>
+						<h2 class="book-title shadows"></h2>
 						<p class="by-text shadows">by</p>
-						<h3 class="book-author shadows">William Gibson</h3>
+						<h3 class="book-author shadows"></h3>
 						<a  href="" target="_blank" class="buy-btn btn">Buy this Book</a>
 						<ul>
 							<li class="additional-info shadows">Publisher: <span class="book-publisher"></span></li>
@@ -58,45 +54,38 @@
 					<h3 class="shadows">Book synopsis</h3>
 					<p id="book-description" class="synopsis"></p>
 				</div>
-				
-				<div class="clearfix">
-					<h3 class="shadows">If you liked: <em class="book-title"></em> than you might also like some of these as well!</h3>
-					<p>click one that sparks your interest</p>
-					<ul class="clearfix">
-						<div class="row book-view-recommend-results td-result">
-						</div>
-					</ul>
+				<<form id="js-button-control">
 					<button class="back-btn btn">Go Back</button>
-					<button  class="book-view-recommend btn">Recommendations</button>
-				</div>
+				    <button  class="book-view-recommend btn">Recommendations</button>
+				</form>
 				
-			</section>
-			<!-- end data-screen -->
-			<!--  search results -->
+			</div>
+			<!-- end of book - view -->
+			<!--  search - result - view -->
 			<section role="region" class="search-result-view clearfix">
-				<div class=" card card-col clearfix">
-					<h3 class="shadows">Here are the results of your search for: <em class="book-title"></em></h3>
-					<p>click one that sparks your interest</p>
-					<ul>
-						<div class="wrapper results-view"></div>
-					</ul>
-				</div>
+				<h3 class="shadows">Here are the results of your search for: <em class="book-title"></em></h3>
+				<p>click one that sparks your interest</p>
+				<ul>
+					<div class="wrapper results-view"></div>
+				</ul>
 			</section>
 			<section role="region" class="tastedive-search-result-view clearfix">
-				<div class=" card card-col clearfix">
-					<h3 class="shadows">Here are the results of your search for: <em class="book-title"></em></h3>
-					<p>click one that sparks your interest</p>
-					<ul>
-						<div class="wrapper td-results"></div>
-					</ul>
-				</div>
-			</section>
-		</main>
-		<footer>
-			<p>&copy;- Timothy Martel - 2018</p>
-			<p class="credit"><small> Book Icon Created by Andrejs Kirma from the <a href="https://thenounproject.com/" target="_blank">noun project</a></small></p>
-		</footer>
-		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-		<script src="index.js"></script>
-	</body>
+				<h3 class="shadows">Here are the results of your search for: <em class="book-title"></em></h3>
+				<p>click one that sparks your interest</p>
+				<ul>
+					<div class="wrapper td-results"></div>
+				</ul>
+			</div>
+		</section>
+	</section>
+	<!-- end of serarch - result -view -->
+
+</main>
+<footer>
+	<p>&copy;- Timothy Martel - 2018</p>
+	<p class="credit"><small> Book Icon Created by Andrejs Kirma from the <a href="https://thenounproject.com/" target="_blank">noun project</a></small></p>
+</footer>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="index.js"></script>
+</body>
 </html>
