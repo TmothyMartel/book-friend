@@ -6,7 +6,7 @@
 
 Book Friend is an app that can help you find basic information about a book or find books that are similar to it that you might also enjoy. You'll never have to ask yourself "what do I read now?
 
-![image of the site](bookfriend-ss.png)
+![image of the site](/bookfriend-SS.png)
 
 ### Technologies used
 
