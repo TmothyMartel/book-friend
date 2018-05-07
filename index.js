@@ -188,7 +188,6 @@ function userRecommendEventListener() {
 function showPage(page) {
   state.lastView = state.currentView;
   state.currentView = page;
-
   $('.search-result-view').hide();
   $('.tastedive-search-result-view').hide();
   $('.results').hide();
