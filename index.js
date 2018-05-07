@@ -167,6 +167,7 @@ function showTasteDiveResults(data) {
      const noResult = "Sorry, but we could not find any recommendations for this title."
       $('.no-result').html(noResult);
       $('.try-again').html('Please try a new search');
+      $('.td-results').html('');
    } else {
   const recoResults = state.recommendations.map((item, index) => tastediveRender(item, index));
   $('.td-results').prop('hidden', false).html(recoResults);
