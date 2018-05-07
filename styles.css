@@ -116,8 +116,7 @@ fieldset {
 
 .btn {
     padding: 10px;
-    color: #eef2f5;
-    text-shadow: 1px 1px #000;
+    color: ##262626;
     border: none;
     background: #00b19a;
     font-size: 14px;
@@ -127,6 +126,7 @@ fieldset {
 .btn:hover {
 	box-shadow: 1px 1px 10px #015449;
     color: #fff;
+    text-shadow: 1px 1px #000;
     cursor: pointer;
     background-color: #1c7166;
 }
