@@ -45,7 +45,7 @@ function tastediveApiSearch(tastediveSearchTerm) {
 
 function resultsRender(result, index) {
     return `
-          <li>
+          <li role="listitem">
               <div class="js-book-view" data-index="${index}">
                <img class="list-book-cover js-book-view-link" 
                   src="${result.volumeInfo.imageLinks ? result.volumeInfo.imageLinks.thumbnail : "place-holder.svg"}" 
@@ -147,7 +147,7 @@ function showTasteDiveBookView() {
 
 function tastediveRender(item, index) {
      return `
-          <li>
+          <li role="listitem">
               <div class="js-td-book-view" data-index="${index}">
               <img class="list-book-cover" src="place-holder.svg" alt="drawing of a book">
                <div class="book-info-link list-synopsis-container">
