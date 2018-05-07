@@ -2,10 +2,6 @@
 	box-sizing: border-box;
 }
 
-nav {
-	display: none;
-}
-
 a {
 	text-decoration: none;
 	color: #efefef;
@@ -40,16 +36,16 @@ fieldset {
   margin: 0;
 }
 
+#book-display {
+	display: none;
+}
+
 .book-view {
 	display: none;
 }
 
 .search-result-view {
 	display: none;
-}
-
-.nav-item {
-	display: inline;
 }
 
 .item {
@@ -59,9 +55,6 @@ fieldset {
 .container {
 	min-height: 800px;
 	margin: 0 auto;
-	/* background-color: rgba(239, 239, 239, .2); */
-	
-    box-shadow: 0px 0px 13px 3px rgba(0, 0, 0, 0.25);
 }
 
 .banner {
@@ -69,7 +62,9 @@ fieldset {
 	border-bottom:  1px solid #014090;
 	background: linear-gradient(to right, rgba(0, 94, 158, 1), rgba(0, 95, 160, .8));
 	padding-bottom: 10px;
+	box-shadow: inset -2px -2px 4px 0px rgba(0, 0, 0, 0.25);
 }
+
 .logo {
 	font-family: 'Fira Sans Condensed', sans-serif;
 	font-size: 2rem;
@@ -90,10 +85,11 @@ fieldset {
 	letter-spacing: 1px;
     border: 1px solid #0074c3;
     color: #eef2f5;
-    background-color: rgba(32, 113, 169, 0.9);
+    background-color: rgba(0, 64, 109, 0.9);
     border-radius: 60px 20px 40px 20px;
 	padding: 25px 40px;
 	font-size: 1.30rem;
+	box-shadow: 0px 0px 13px 3px rgba(0, 0, 0, 0.25);
 }
 
 .app-introduction {
@@ -127,6 +123,7 @@ fieldset {
 	box-shadow: 1px 1px 10px #015449;
     color: #fff;
     cursor: pointer;
+    background-color: #1c7166;
 }
 
 .book-title {

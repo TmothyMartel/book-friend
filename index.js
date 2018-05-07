@@ -35,6 +35,9 @@ function tastediveApiSearch(tastediveSearchTerm) {
             limit: 12,
             k: "304808-authorse-BD8LBICQ",
         },
+        error: function(error) {
+          console.log('error', error);
+        },
         jsonpCallback: 'showTasteDiveResults',
         dataType: 'jsonp'
     });
@@ -66,7 +69,9 @@ function bookInfoViewRender(result) {
     $('.book-publisher').text(`${result.publisher?result.publisher : "No publisher listed"}`);
     $('.book-pages').text(`${result.pageCount?result.pageCount : "no page count listed"}`);
     $('.book-category').text(`${result.categories ? result.categories[0] : "unavailable"}`);
-     
+    const bookTitleQuery = `${result.title}`;
+    console.log(bookTitleQuery);
+    bookViewRecommendEvenListener(bookTitleQuery);
 }
 
 function showBookView() {
@@ -97,13 +102,19 @@ function showGoogleBooksResults(data) {
 // event listener for google books api search button
 function userSearchEventListener() {
     $('#js-search-form').on('click', 'button.search.btn', event => {
-        event.preventDefault();
         const queryTarget = $('#js-search-form').find('input.js-search-bar');
         const query = queryTarget.val();
+        if (query === '') {
+            console.log($('.js-search-bar').val());
+          } else {
+        event.preventDefault();
         queryTarget.val("");
         $('.book-title').text(query);
         googleApiSearch(query, showGoogleBooksResults);
+        $('#book-display').show();
         showPage('.search-result-view');
+    
+  }
     });
 }
 
@@ -155,19 +166,21 @@ function userRecommendEventListener() {
         const tDQuery = tDQueryTarget.val();
         tDQueryTarget.val("");
         tastediveApiSearch(tDQuery);
-        showPage('.tastedive-search-result-view')
+        $('#book-display').show();
+        showPage('.tastedive-search-result-view');
       });
   }
 
 
     // render results in single book view
   
-  function bookViewRecommendEvenListener() {
-      $('.book-view-recommend').on('click', event => {
+  function bookViewRecommendEvenListener(title) {
+      $('#js-button-control').on('click', 'button.book-view-recommend', event => {
         event.preventDefault();
-        const bookTitleQuery = $('.book-title').text();
-        tastediveApiSearch(bookTitleQuery);
-        showPage('.book-view-recommend-results');
+         tastediveApiSearch(title);
+       $('#book-display').show();
+        // showPage('.book-view-recommend-results');
+        showPage('.tastedive-search-result-view');
       });
   }
 
@@ -175,13 +188,14 @@ function userRecommendEventListener() {
 function showPage(page) {
   state.lastView = state.currentView;
   state.currentView = page;
+
   $('.search-result-view').hide();
   $('.tastedive-search-result-view').hide();
   $('.results').hide();
   $('.home-view').hide();
   $('.book-view').hide();
   $('.book-view-recommend-results').hide;
-  $(page).fadeIn(500).show();
+  $(page).fadeIn(700).show();
 }
 
 function handleEventListeners() {
@@ -190,10 +204,11 @@ function handleEventListeners() {
   userSearchEventListener();
   userRecommendEventListener();
   backButtonEventListener();
-  bookViewRecommendEvenListener();
+  showPage('.home-view');
 }
 
 $('#js-home-view').on('click', function() {
+    $('#book-display').hide();
     showPage('.home-view');  
 });
 
@@ -203,7 +218,6 @@ $(handleEventListeners);
 
 
 // ToDo: 
-//    add functionality to recommendation button onbook view
-//    add functionality to the buy book button
-//    test and fix any emergent bugs.
-//   final style touches ie, fade in info
+//    fix bug with functionality to recommendation button onbook view
+//    final tests
+//    prepare documentation
