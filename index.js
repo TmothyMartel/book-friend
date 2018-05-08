@@ -50,11 +50,11 @@ function resultsRender(result, index) {
                <img class="list-book-cover js-book-view-link" 
                   src="${result.volumeInfo.imageLinks ? result.volumeInfo.imageLinks.thumbnail : "place-holder.svg"}" 
                   alt="image of book cover">
-               <div class="book-info-link list-synopsis-container">
+               <a href="#"><div class="book-info-link list-synopsis-container">
                  <h3 class="list-book-title shadows">${result.volumeInfo.title}</h3>
                  <p class="list-book-synopsis">${result.volumeInfo.description?result.volumeInfo.description:"No description available"}</p>
                  <p><small>click to read more</small>...</p>
-              </div>
+              </div></a>
             </div>
           </li>
           `
