@@ -1,10 +1,10 @@
 'use strict'
 
 let state = {
-  books: [],
-  recommendations: [],
-  lastView: ".home-view",
-  currentView: ".home-view"
+    books: [],
+    recommendations: [],
+    lastView: ".home-view",
+    currentView: ".home-view"
 }
 
 // google book api AJAX request
@@ -19,7 +19,7 @@ function googleApiSearch(searchTerm, callback) {
         error: function(error) {
             console.log('error', error);
         },
-        success:  callback,
+        success: callback,
         type: 'GET'
     });
 }
@@ -36,7 +36,7 @@ function tastediveApiSearch(tastediveSearchTerm) {
             k: "304808-authorse-BD8LBICQ",
         },
         error: function(error) {
-          console.log('error', error);
+            console.log('error', error);
         },
         jsonpCallback: 'showTasteDiveResults',
         dataType: 'jsonp'
@@ -75,34 +75,35 @@ function bookInfoViewRender(result) {
 
 // event listener to show individual book information
 function showBookView() {
-$('.js-book-view').on('click', event => {
-   event.preventDefault();
-   let index = $(event.currentTarget).attr('data-index');
-    const bookViewResult = state.books[index].volumeInfo;
-    bookInfoViewRender(bookViewResult);
-    showPage('.book-view');
-});
+    $('.js-book-view').on('click', event => {
+        event.preventDefault();
+        let index = $(event.currentTarget).attr('data-index');
+        const bookViewResult = state.books[index].volumeInfo;
+        bookInfoViewRender(bookViewResult);
+        showPage('.book-view');
+    });
 }
 
 
 function backButtonEventListener() {
-  $('.back-btn').on('click', event => {
-    event.preventDefault();
-    showPage(state.lastView);
-  })
+    $('.back-btn').on('click', event => {
+        event.preventDefault();
+        $('.no-result').hide();
+        showPage(state.lastView);
+    });
 }
 
 function showGoogleBooksResults(data) {
-   state.books = data.items;
-   if (state.books.length === 0) {
-     const noResult = "Sorry but we could not find anything to match your search."
-      $('.no-result').html(noResult);
-      $('.try-again').html('Please try a new search');
-   } else {
-    const results = state.books.map((item, index) => resultsRender(item, index));
-    $('.results-view').prop('hidden', false).html(results);
-    showBookView();
-  }
+    state.books = data.items;
+    if (state.books.length === 0) {
+        $('.no-result').show();
+        $('.search-result-view').hide();
+    } else {
+        const results = state.books.map((item, index) => resultsRender(item, index));
+        $('.results-view').prop('hidden', false).html(results);
+        $('.no-result').hide();
+        showBookView();
+    }
 }
 
 // event listener for google books api search button
@@ -112,15 +113,14 @@ function userSearchEventListener() {
         const query = queryTarget.val();
         if (query === '') {
             console.log('invalid search');
-          } else {
-        event.preventDefault();
-        queryTarget.val("");
-        $('.book-title').text(query);
-        googleApiSearch(query, showGoogleBooksResults);
-        $('#book-display').show();
-        showPage('.search-result-view');
-    
-  }
+        } else {
+            event.preventDefault();
+            queryTarget.val("");
+            $('.book-title').text(query);
+            googleApiSearch(query, showGoogleBooksResults);
+            $('#book-display').show();
+            showPage('.search-result-view');
+        }
     });
 }
 
@@ -130,23 +130,23 @@ function userSearchEventListener() {
 //  preforming a google book api search with the tastedive result
 function showGoogleBook(data) {
     state.books = data.items;
-     const bookViewResult = state.books[0].volumeInfo;
+    const bookViewResult = state.books[0].volumeInfo;
     bookInfoViewRender(bookViewResult);
     showPage('.book-view');
 }
 
 // clicking on a link in recommend view will show singular book view from google api.
 function showTasteDiveBookView() {
-  $('.book-info-link').on('click',  event => {
-   event.preventDefault();
-   let index = $(event.currentTarget).attr('data-index');
-   let title = $(event.currentTarget).find('.list-book-title').text();
-   googleApiSearch(title, showGoogleBook);
-});
+    $('.book-info-link').on('click', event => {
+        event.preventDefault();
+        let index = $(event.currentTarget).attr('data-index');
+        let title = $(event.currentTarget).find('.list-book-title').text();
+        googleApiSearch(title, showGoogleBook);
+    });
 }
 
 function tastediveRender(item, index) {
-     return `
+    return `
           <li role="listitem">
               <div class="js-td-book-view" data-index="${index}">
               <img class="list-book-cover" src="place-holder.svg" alt="drawing of a book">
@@ -162,17 +162,16 @@ function tastediveRender(item, index) {
 
 
 function showTasteDiveResults(data) {
-  state.recommendations = data.Similar.Results;
-   if (state.recommendations.length === 0) {
-     const noResult = "Sorry, but we could not find any recommendations for this title."
-      $('.no-result').html(noResult);
-      $('.try-again').html('Please try a new search');
-      $('.td-results').html('');
-   } else {
-  const recoResults = state.recommendations.map((item, index) => tastediveRender(item, index));
-  $('.td-results').prop('hidden', false).html(recoResults);
- showTasteDiveBookView();
-}
+    state.recommendations = data.Similar.Results;
+    if (state.recommendations.length === 0) {
+        $('.no-result').show();
+        $('.tastedive-search-result-view').hide();
+    } else {
+        const recoResults = state.recommendations.map((item, index) => tastediveRender(item, index));
+        $('.td-results').prop('hidden', false).html(recoResults);
+        $('.no-result').hide();
+        showTasteDiveBookView();
+    }
 }
 
 // event listener to run tastedive api search from search bar
@@ -180,65 +179,57 @@ function userRecommendEventListener() {
     $('#js-search-form').on('click', 'button.recommend.btn', event => {
         const tDQueryTarget = $('#js-search-form').find('input.js-search-bar');
         const tDQuery = tDQueryTarget.val();
-         if (tDQuery === '') {
+        if (tDQuery === '') {
             console.log('invalid search');
-          } else {
+        } else {
+            event.preventDefault();
+            tDQueryTarget.val("");
+            $('.book-title').text(tDQuery);
+            tastediveApiSearch(tDQuery);
+            $('#book-display').show();
+            showPage('.tastedive-search-result-view');
+        }
+    });
+}
+
+
+// render results in single book view
+
+function bookViewRecommendEvenListener(title) {
+    $('#js-button-control').on('click', 'button.book-view-recommend', event => {
         event.preventDefault();
-        tDQueryTarget.val("");
-        $('.book-title').text(tDQuery);
-        tastediveApiSearch(tDQuery);
+        tastediveApiSearch(title);
         $('#book-display').show();
         showPage('.tastedive-search-result-view');
-      }
-      });
-  }
+    });
+}
 
-
-    // render results in single book view
-  
-  function bookViewRecommendEvenListener(title) {
-      $('#js-button-control').on('click', 'button.book-view-recommend', event => {
-        event.preventDefault();
-         tastediveApiSearch(title);
-       $('#book-display').show();
-        // showPage('.book-view-recommend-results');
-        showPage('.tastedive-search-result-view');
-      });
-  }
-
+function homeViewEvenListener() {
+    $('#js-home-view').on('click', function() {
+        $('#book-display').hide();
+        showPage('.home-view');
+    });
+}
 
 function showPage(page) {
-  state.lastView = state.currentView;
-  state.currentView = page;
-  $('.search-result-view').hide();
-  $('.tastedive-search-result-view').hide();
-  $('.results').hide();
-  $('.home-view').hide();
-  $('.book-view').hide();
-  $('.book-view-recommend-results').hide;
-  $(page).fadeIn(700).show();
+    state.lastView = state.currentView;
+    state.currentView = page;
+    $('.search-result-view').hide();
+    $('.tastedive-search-result-view').hide();
+    $('.results').hide();
+    $('.home-view').hide();
+    $('.book-view').hide();
+    $('.book-view-recommend-results').hide();
+    $(page).fadeIn(700).show();
 }
 
 function handleEventListeners() {
-  $('.search-result-view').hide();
-  $('.tastedive-search-result-view').hide();
-  userSearchEventListener();
-  userRecommendEventListener();
-  backButtonEventListener();
-  showPage('.home-view');
+    homeViewEvenListener();
+    userSearchEventListener();
+    userRecommendEventListener();
+    backButtonEventListener();
+    showPage('.home-view');
 }
 
-$('#js-home-view').on('click', function() {
-    $('#book-display').hide();
-    showPage('.home-view');  
-});
 
 $(handleEventListeners);
-
-
-
-
-// ToDo: 
-//    fix bug with functionality to recommendation button onbook view
-//    final tests
-//    prepare documentation

@@ -48,6 +48,10 @@ fieldset {
 	display: none;
 }
 
+.no-result {
+	display: none;
+}
+
 .item {
 	margin: 10px auto;
 }
