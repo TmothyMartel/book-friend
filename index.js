@@ -46,16 +46,16 @@ function tastediveApiSearch(tastediveSearchTerm) {
 function resultsRender(result, index) {
     return `
           <li role="listitem">
-              <div class="js-book-view" data-index="${index}">
-               <img class="list-book-cover js-book-view-link" 
+             <a href="#"><div class="book-info-link js-book-view" data-index="${index}">
+               <img class="list-book-cover" 
                   src="${result.volumeInfo.imageLinks ? result.volumeInfo.imageLinks.thumbnail : "place-holder.svg"}" 
                   alt="image of book cover">
-               <a href="#"><div class="book-info-link list-synopsis-container">
+               <div class=" list-synopsis-container">
                  <h3 class="list-book-title shadows">${result.volumeInfo.title}</h3>
                  <p class="list-book-synopsis">${result.volumeInfo.description?result.volumeInfo.description:"No description available"}</p>
                  <p><small>click to read more</small>...</p>
-              </div></a>
-            </div>
+              </div>
+            </div></a>
           </li>
           `
 }
@@ -148,14 +148,14 @@ function showTasteDiveBookView() {
 function tastediveRender(item, index) {
     return `
           <li role="listitem">
-              <div class="js-td-book-view" data-index="${index}">
+              <a href="#"><div class="book-info-link js-td-book-view" data-index="${index}">
               <img class="list-book-cover" src="place-holder.svg" alt="drawing of a book">
-               <div class="book-info-link list-synopsis-container">
+               <div class="list-synopsis-container">
                  <h3 class="list-book-title shadows">${item.Name}</h3>
                  <p class="list-book-synopsis">${item.wTeaser}</p>
                  <p><small>click to read more</small>...</p>
               </div>
-            </div>
+            </div></a>
           </li>
           `;
 }
