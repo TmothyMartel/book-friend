@@ -233,3 +233,16 @@ function handleEventListeners() {
 
 
 $(handleEventListeners);
+
+
+// Design.
+// - Remove borders
+// - Remove shadows XX
+// - normal text spacing
+// - use the same blue everywhere.
+// - Nav: move BookFriend to the left abd the form to the right.
+//     (so it displays in one line)
+// - Remove blue background color (keep boxes)
+
+// - https://www.wunderlist.com/
+// - https://unsplash.com/
