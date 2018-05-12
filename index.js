@@ -246,3 +246,7 @@ $(handleEventListeners);
 
 // - https://www.wunderlist.com/
 // - https://unsplash.com/
+
+//Photo by Thomas Kelley on Unsplash
+
+//Photo by Janko Ferlič on Unsplash
