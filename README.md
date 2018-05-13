@@ -16,3 +16,8 @@ Book Friend is an app that can help you find basic information about a book or f
 1. jQuery
 1. Google Books API
 1. Tastedive API
+
+### attributions
+
+
+Book Icon Created by Andrejs Kirma from the [noun project](https://thenounproject.com/") 
