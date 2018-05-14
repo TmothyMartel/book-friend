@@ -6,63 +6,72 @@
 		<meta name="description" content="learn about your favorite book and get recommends on similar books">
 		<title>Book Friend</title>
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
-		<link href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:800i|Montserrat:600" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:800i|Montserrat" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="styles.css">
 	</head>
 	<body>
 		<header id="header" class="banner" role="banner">
-			<div class="book-search">
-				<form id="js-search-form" class="search-form">
-					<a href="#header" id="js-home-view">
+			<a href="#header" id="js-home-view">
 						<h1 class="logo">Book Friend</h1>
 					</a>
+			
+				<form id="js-search-form" aria-live="polite" class="search-form">
 					<fieldset>
 						<input class="js-search-bar" type="text" aria-label="search-bar" placeholder="Enter a book title" required />
 						<button class="search btn" type="submit" name="Book information">Search</button>
 						<button class="recommend btn" type="submit" name="Recommendations">Recommendations</button>
 					</fieldset>
 				</form>
-			</div>
 			
 		</header>
 		<main class="container" role="main">
 			<!--  Home View screen -->
 			<section role="region" class="home-view intro-wrapper">
-				<div class="app-introduction-card card">
-					<h2 class="shadows welcome">Welcome to Book Friend!</h2> 
-					<p>It can tell you all about any book you either love or are interested in and provide you with a curated list of books you might like to read. You'll never have to ask yourself "what do I read now?"</p>
-					<br>
-					<p><em>How it works:</em></p>
-					<p>Just enter a book title and click search to find out about the book</p>
-					<p>Or click on recommendations to get a list of books that are similar to the title you enter!</p>
-				</div>
 				<div class="app-introduction-card">
-					<img  class="home-image" src="bookcover.png" alt="stack of books">
+					
+					<p>Bookfriend can give you a synopsis of any book you either love or want to learn more about. It can also recommend similar books you might enjoy so you will never have to ask yourself "what do I read now?"</p>
+				</div>
+				<div class="app-introduction-image image-one">
+					<img  class="home-image" src="images/jason-wong-502099-unsplash.jpg" alt="stack of books">
+				</div>
+				<div class="app-introduction-image">
+					<img  class="home-image" src="images/rawpixel-191131-unsplash.jpg" alt="stack of books">
+				</div>
+					<div class="app-introduction-card how-it-works">
+					<p><em>How it works:</em></p>
+					<p>Enter a book title and click search to find basic information about the book, including a synopsis, author, etc.</p>
+				</div>
+				
+				<div class="app-introduction-card">
+					<p> Click on recommendations to get a list of books that are similar to the title you entered. Then select it from the list to learn more about it.</p>
+				</div>
+				<div class="app-introduction-image">
+					<img  class="home-image" src="images/thomas-kelley-128626-unsplash.jpg" alt="stack of books">
 				</div>
 			</section>
 			<!-- end home view -->
 			<!--  Book - view -->
 			<section role="region" id="book-display" class=" card card-col clearfix">
-				<article role="article" class="book-view book-search-results" aria-live="assertive" hidden>
+				<article role="article" class="book-view book-search-results" aria-live="polite" hidden>
 					<div class="col-2">
 						<img class="book-cover" src="place-holder.svg" alt="book cover">
-						<h2 class="book-title shadows"></h2>
-						<p class="by-text shadows">by</p>
-						<h3 class="book-author shadows"></h3>
+						<h2 class="book-title "></h2>
+						<p class="by-text ">by</p>
+						<h3 class="book-author "></h3>
 						<a  href="" target="_blank" class="buy-btn btn">Buy this Book</a>
 						<ul>
-							<li class="additional-info shadows">Publisher: <span class="book-publisher"></span></li>
-							<li class="additional-info shadows">Page Count: <span class="book-pages"></span></li>
-							<li class="additional-info shadows">Categories: <span class="book-category"></span>
+							<li class="additional-info ">Publisher: <span class="book-publisher"></span></li>
+							<li class="additional-info ">Page Count: <span class="book-pages"></span></li>
+							<li class="additional-info ">Categories: <span class="book-category"></span>
 						</li>
 					</ul>
 				</div>
 				<div class="book-data col-2">
-					<h3 class="shadows">Book synopsis</h3>
+					<h3 class="">Book synopsis</h3>
 					<p id="book-description" class="synopsis"></p>
 				</div>
 				
-				<form id="js-button-control" class="clearfix">
+				<form id="js-button-control" class="clearfix book-view-buttons">
 					<button class="back-btn btn">Go Back</button>
 					<button  class="book-view-recommend btn">Recommendations</button>
 				</form>
@@ -70,19 +79,22 @@
 			</article>
 			<!-- end of book - view -->
 			<!--  search - result - view -->
-			<div class="no-result">
-				<h2 class="shadows">Sorry but we could not find anything to match your search.</h2>
+			<div class="no-result" aria-live="polite">
+				<h2 class="">Sorry but we could not find anything to match your search.</h2>
 				<p>Please try a new search</p>
+				
+					<img  class="search-fail-image" src="images/clay-banks-258326-unsplash.jpg" alt="stack of books">
+				
 			</div>
-			<article role="article" class="search-result-view clearfix">
-				<h3 class="shadows">Here are the results of your search for: <em class="book-title"></em></h3>
+			<article role="article" aria-live="assertive" class="search-result-view clearfix">
+				<h3 class="results-text">Here are the results of your search for: <em class="book-title"></em></h3>
 				<p>click one that sparks your interest</p>
 				
 			<ul class="wrapper results-view" aria-live="assertive" role="list" hidden></ul>
 			
 		</article>
 		<article role="article" aria-live="assertive" class="tastedive-search-result-view clearfix">
-			<h3 class="shadows">If you liked: <em class="book-title"></em> than you might also enjoy one of these books</h3>
+			<h3 class="results-text">If you liked: <em class="book-title"></em> than you might also enjoy one of these books</h3>
 			<p>click one that sparks your interest</p>
 		<ul class="wrapper td-results" aria-live="assertive" role="list" hidden></ul>
 		
@@ -92,7 +104,6 @@
 </main>
 <footer role="contentinfo">
 <p>&copy;- Timothy Martel - 2018</p>
-<p class="credit"><small> Book Icon Created by Andrejs Kirma from the <a href="https://thenounproject.com/" target="_blank">noun project</a></small></p>
 </footer>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="index.js"></script>
