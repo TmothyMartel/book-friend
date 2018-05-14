@@ -48,6 +48,7 @@ fieldset {
 
 .no-result {
     display: none;
+    text-align: center;
 }
 
 .item {
@@ -105,6 +106,7 @@ fieldset {
     margin-left: auto;
     width: 100%;
     border-radius: 20px;
+    display: none;
 }
 
 .app-introduction-card {
@@ -126,7 +128,7 @@ fieldset {
 }
 
 .js-search-bar {
-    width: 87%;
+    width: 84%;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 15px;
@@ -182,15 +184,18 @@ fieldset {
     line-height: 30px;
 }
 
-.by-text {
-    margin-top: 10px;
-}
-
 .book-author {
     margin-bottom: 20px;
 }
 
+.search-fail-image {
+	height: 400px;
+	width: auto;
+
+}
+
 .buy-btn {
+	width: 30%;
     margin-top: 10px;
 }
 
@@ -278,7 +283,13 @@ footer {
     margin: 10px auto;
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 700px) {
+	.home-image {
+		display: block;
+	}
+}
+
+@media screen and (min-width: 700px) {
 
     .row {
         max-width: 1000px;
@@ -368,6 +379,10 @@ footer {
         width: 80%;
         margin: 0 auto;
     }
+
+    /* home-image {
+    	display: block;
+    } */
 
 
     .btn {
