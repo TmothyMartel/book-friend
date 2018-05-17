@@ -10,7 +10,7 @@
 		<link rel="stylesheet" type="text/css" href="styles.css">
 	</head>
 	<body>
-		<header id="header" class="banner" role="banner">
+		<header  aria-live="polite" id="header" class="banner" role="banner">
 			<a href="#header" id="js-home-view">
 				<h1 class="logo">Book Friend</h1>
 			</a>
@@ -26,12 +26,12 @@
 		</header>
 		<main  role="main">
 			<!--  Home View screen -->
-			<header role="banner" class="hero-image">
+			<header role="banner" class="hero-image" aria-live="polite">
 				<p class="hero-text"> Not Sure What to read next?</p>
 				<p class="hero-text">Don't fret because we can help!</p>
 			</header>
 			<div class="container">
-			<section role="region" class="home-view intro-wrapper">
+			<section role="region" aria-live="polite" class="home-view intro-wrapper">
 				<div class="app-introduction-card">
 					
 					<p>With Bookfriend you can find the synopsis of any book you either love or want to learn more about. It can also recommend similar books you might enjoy so you will never have to ask yourself "what do I read now?"</p>
@@ -56,7 +56,7 @@
 			</section>
 			<!-- end home view -->
 			<!--  Book - view -->
-			<section role="region" id="book-display" class=" card card-col clearfix">
+			<section  aria-live="polite" role="region" id="book-display" class="card card-col clearfix">
 				<article role="article" class="book-view book-search-results" aria-live="polite" hidden>
 					<div class="col-2">
 						<img class="book-cover" src="place-holder.svg" alt="book cover">
@@ -70,7 +70,7 @@
 							<li>Categories: <span class="book-category"></span></li>
 						</ul>
 					</div>
-				<div class="book-data col-2">
+				<div class="book-data col-2" aria-live="polite">
 					<h3 class="">Book synopsis</h3>
 					<p id="book-description" class="synopsis"></p>
 				</div>
@@ -90,17 +90,17 @@
 				<img  class="search-fail-image" src="images/clay-banks-258326-unsplash.jpg" alt="stack of books">
 			</div>
 
-			<article role="article" aria-live="assertive" class="search-result-view clearfix">
+			<article role="article" aria-live="polite" class="search-result-view clearfix">
 				<h3 class="results-text">Here are the results of your search for: <em class="book-title"></em></h3>
 				<p class="results-text">click one that sparks your interest</p>
 				
-			<ul class="wrapper results-view" aria-live="assertive" role="list" hidden></ul>
+			<ul class="wrapper results-view" aria-live="polite" role="list" hidden></ul>
 			
 			</article>
-			<article role="article" aria-live="assertive" class="tastedive-search-result-view clearfix">
+			<article role="article" aria-live="polite" class="tastedive-search-result-view clearfix">
 				<h3 class="results-text">If you liked: <em class="book-title"></em> than you might also enjoy one of these books</h3>
 				<p class="results-text">click one that sparks your interest</p>
-				<ul class="wrapper td-results" aria-live="assertive" role="list" hidden></ul>
+				<ul class="wrapper td-results" aria-live="polite" role="list" hidden></ul>
 		
 			</article>
 
