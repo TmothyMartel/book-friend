@@ -121,6 +121,7 @@ function userSearchEventListener() {
             $('.book-title').text(query);
             googleApiSearch(query, showGoogleBooksResults);
             $('#book-display').show();
+            $('.hero-image').hide();
             showPage('.search-result-view');
         }
     });
@@ -189,6 +190,7 @@ function userRecommendEventListener() {
             $('.book-title').text(tDQuery);
             tastediveApiSearch(tDQuery);
             $('#book-display').show();
+            $('.hero-image').hide();
             showPage('.tastedive-search-result-view');
         }
     });
@@ -210,6 +212,7 @@ function homeViewEvenListener() {
     $('#js-home-view').on('click', function() {
         $('#book-display').hide();
         showPage('.home-view');
+        $('.hero-image').show();
     });
 }
 

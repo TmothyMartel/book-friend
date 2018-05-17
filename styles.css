@@ -67,6 +67,10 @@ fieldset {
     width: 100%;
 }
 
+.hero-image {
+	display: none;
+}
+
 .wrapper {
     display: block;
 }
@@ -110,7 +114,6 @@ fieldset {
 .app-introduction-card {
     text-align: left;
     font-size: 20px;
-    /* padding: 10px 20px; */
     margin-right: auto;
     margin-left: auto;
 }
@@ -183,6 +186,7 @@ fieldset {
 .book-title {
     text-transform: capitalize;
     letter-spacing: 1px;
+    margin-top: 10px;
     margin-bottom: 0;
 }
 
@@ -232,7 +236,7 @@ fieldset {
     font-size: 20px;
     padding-bottom: 5px;
     text-align: left;
-    margin: 5px
+    margin-top: 40px
 }
 
 .list-synopsis-container {
@@ -307,6 +311,23 @@ footer {
 		display: block;
 	}
 
+	.hero-image {
+		display: inline-block;
+		background-image: url('images/abednego-setio-gusti-360294-unsplash.jpg');
+		background-position: center;
+		width: 100%;
+		height: 300px;
+		background-size: cover;
+    }
+
+    .hero-text {
+    	font-family: 'Fira Sans Condensed', sans-serif;
+    	font-size: 30px;
+    	color: #eef2f5 ;
+    	margin-left: 50px;
+    	
+    }
+
 	.card {
 		padding: 25px;
 	}
@@ -342,10 +363,6 @@ footer {
 		padding-top: 0;
     }
 
-	/* .how-it-works {
-		grid-column: 3;
-		grid-row: 2;
-	} */
 }
 
 @media screen and (min-width: 980px) {

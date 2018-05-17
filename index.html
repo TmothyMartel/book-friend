@@ -24,12 +24,17 @@
 			</form>
 			
 		</header>
-		<main class="container" role="main">
+		<main  role="main">
 			<!--  Home View screen -->
+			<header role="banner" class="hero-image">
+				<p class="hero-text"> Not Sure What to read next?</p>
+				<p class="hero-text">Don't fret because we can help!</p>
+			</header>
+			<div class="container">
 			<section role="region" class="home-view intro-wrapper">
 				<div class="app-introduction-card">
 					
-					<p>Bookfriend can give you a synopsis of any book you either love or want to learn more about. It can also recommend similar books you might enjoy so you will never have to ask yourself "what do I read now?"</p>
+					<p>With Bookfriend you can find the synopsis of any book you either love or want to learn more about. It can also recommend similar books you might enjoy so you will never have to ask yourself "what do I read now?"</p>
 				</div>
 				<div class="app-introduction-image image-one">
 					<img  class="home-image" src="images/jason-wong-502099-unsplash.jpg" alt="stack of books">
@@ -59,13 +64,12 @@
 						<p class="by-text ">by</p>
 						<h3 class="book-author "></h3>
 						<a  href="" target="_blank" class="buy-btn btn">Buy this Book</a>
-						<ul>
-							<li class="additional-info ">Publisher: <span class="book-publisher"></span></li>
-							<li class="additional-info ">Page Count: <span class="book-pages"></span></li>
-							<li class="additional-info ">Categories: <span class="book-category"></span>
-						</li>
-					</ul>
-				</div>
+						<ul class="additional-info">
+							<li>Publisher: <span class="book-publisher"></span></li>
+							<li>Page Count: <span class="book-pages"></span></li>
+							<li>Categories: <span class="book-category"></span></li>
+						</ul>
+					</div>
 				<div class="book-data col-2">
 					<h3 class="">Book synopsis</h3>
 					<p id="book-description" class="synopsis"></p>
@@ -107,6 +111,7 @@
 			</div>
 	</section>
 <!-- end of serarch - result -view -->
+	</div>
 </main>
 <footer role="contentinfo">
 <p>&copy;- Timothy Martel - 2018</p>
