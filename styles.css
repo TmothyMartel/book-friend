@@ -58,6 +58,7 @@ fieldset {
 .container {
     min-height: 800px;
     margin: 0 auto;
+    padding: 15px;
 }
 
 .banner {
@@ -93,8 +94,6 @@ fieldset {
 
 .card {
     letter-spacing: 1px;
-    border-right: 1px solid #0074c3;
-    border-left: 1px solid #0074c3;
     padding: 10px;
     font-size: 1.30rem;
     border-radius: 0;
@@ -104,16 +103,14 @@ fieldset {
 .home-image {
     margin-right: auto;
     margin-left: auto;
-    width: auto;
-    height: 400px;
-    border-radius: 20px;
-    display: none;
+    width: 100%;
+    border-radius: 6px;
 }
 
 .app-introduction-card {
     text-align: left;
-    font-size: 30px;
-    padding: 10px 20px;
+    font-size: 20px;
+    /* padding: 10px 20px; */
     margin-right: auto;
     margin-left: auto;
 }
@@ -124,9 +121,15 @@ fieldset {
     margin-left: auto;
 }
 
+.image-one {
+	grid-row: 1;		
+}
+
 
 .intro-wrapper {
-    display: block;
+    display: grid;
+    grid-template-rows: 6fr;
+    grid-template-columns: 100%;
 }
 
 .book-data {
@@ -206,7 +209,7 @@ fieldset {
 }
 
 .buy-btn {
-	width: 30%;
+	width: 50%;
     margin-top: 10px;
 }
 
@@ -214,7 +217,7 @@ fieldset {
     text-align: center;
     cursor: pointer;
     margin: 0 auto;
-    width: 80%;
+    padding: 10px;
     max-height: 510px;
     border: 1px solid #05619f;
 }
@@ -278,6 +281,9 @@ footer {
 	text-align: center;
 }
 
+.error-view {
+	display: none;
+}
 
 
 /******** Grid Styles *********/
@@ -289,10 +295,10 @@ footer {
 .col-2,
 .app-intro-col {
     width: 100%;
+    text-align: center;
 }
 
 .card-col {
-    width: 100%;
     margin: 10px auto;
 }
 
@@ -305,32 +311,41 @@ footer {
 		padding: 25px;
 	}
 
+	.container {
+		padding: 60px;
+	}
+
 	.image-one {
-		display: none;
+		grid-row: auto;
 	}
 
 	.intro-wrapper {
-		grid-template-columns:10% 1fr 1fr 10%;
-	}
+        display: grid;
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: 50% 50%;
+        grid-gap: 20px;
+    }
 
-	.app-introduction-card {
-		grid-column: 1;
-	}
+    .buy-btn {
+    	width: 30%;
+    }
 
-	.app-introduction-image {
-		padding: 10px 20px;
+	/* .app-introduction-card {
 		grid-column: 2;
 	}
 
+	.app-introduction-image {
+		grid-column: auto;
+	} */
+
 	 .app-introduction-card p {
 		padding-top: 0;
-		font-size: 25px;
     }
 
-	.how-it-works {
-		grid-column: 1;
+	/* .how-it-works {
+		grid-column: 3;
 		grid-row: 2;
-	}
+	} */
 }
 
 @media screen and (min-width: 980px) {
@@ -386,18 +401,11 @@ footer {
         display: inline;
     }
 
-    .intro-wrapper {
-        display: grid;
-        grid-template-rows: repeat(2, 1fr);
-        grid-template-columns: 50% 50%;
-        grid-gap: 10px;
-    }
-
     .wrapper {
     	display: grid;
         grid-template-rows: repeat(3, 1fr);
         grid-template-columns: repeat(2, 1fr);
-        grid-gap: 10px;
+        grid-gap: 40px;
     }
 
     .image-one {
@@ -424,17 +432,12 @@ footer {
         margin: 0;
     }
 
-    .home-image {
-    	height: 300px;
-    	width: auto;
-    }
-
     .app-introduction-card p {
 		padding-top:0;
-		font-size: 27px;
+		font-size: 23px;
     }
 
-        .app-introduction-card {
+    .app-introduction-card {
 		grid-column: 1;
 	}
 
@@ -453,13 +456,13 @@ footer {
     }
 }
 
-@media screen and (min-width: 1500px) {
+@media screen and (min-width: 1200px) {
     .col {
         width: 50%;
     }
 
      .card-col {
-        width: 60%;
+        width: 80%;
     }
 
     .home-view {
@@ -467,20 +470,20 @@ footer {
     	margin: 0 auto;
     }
 
-    .home-image {
+    /* .home-image {
     	height: 400px;
-    }
+    } */
 
     .intro-wrapper {
         display: grid;
         grid-template-rows: repeat(1, 1fr);
         grid-template-columns: repeat(2, 1fr);
-        grid-gap: 10px;
+        grid-gap: 40px;
+       
     }
 
     .app-introduction-card p {
-		padding-top: 50px;
-		font-size: 32px;
+		font-size: 26px;
     }
 
     .app-introduction-card {

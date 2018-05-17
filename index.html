@@ -12,16 +12,16 @@
 	<body>
 		<header id="header" class="banner" role="banner">
 			<a href="#header" id="js-home-view">
-						<h1 class="logo">Book Friend</h1>
-					</a>
+				<h1 class="logo">Book Friend</h1>
+			</a>
 			
-				<form id="js-search-form" aria-live="polite" class="search-form">
-					<fieldset>
-						<input class="js-search-bar" type="text" aria-label="search-bar" placeholder="Enter a book title" required />
-						<button class="search btn" type="submit" name="Book information">Search</button>
-						<button class="recommend btn" type="submit" name="Recommendations">Recommendations</button>
-					</fieldset>
-				</form>
+			<form id="js-search-form" aria-live="polite" class="search-form">
+				<fieldset>
+					<input class="js-search-bar" type="text" aria-label="search-bar" placeholder="Enter a book title" required />
+					<button class="search btn" type="submit" name="Book information">Search</button>
+					<button class="recommend btn" type="submit" name="Recommendations">Recommendations</button>
+				</fieldset>
+			</form>
 			
 		</header>
 		<main class="container" role="main">
@@ -37,7 +37,7 @@
 				<div class="app-introduction-image">
 					<img  class="home-image" src="images/rawpixel-191131-unsplash.jpg" alt="stack of books">
 				</div>
-					<div class="app-introduction-card how-it-works">
+				<div class="app-introduction-card how-it-works">
 					<p><em>How it works:</em></p>
 					<p>Enter a book title and click search to find basic information about the book, including a synopsis, author, etc.</p>
 				</div>
@@ -83,23 +83,29 @@
 				<h2 class="results-text">Sorry but we could not find anything to match your search.</h2>
 				<p class="results-text">Please try a new search</p>
 				
-					<img  class="search-fail-image" src="images/clay-banks-258326-unsplash.jpg" alt="stack of books">
-				
+				<img  class="search-fail-image" src="images/clay-banks-258326-unsplash.jpg" alt="stack of books">
 			</div>
+
 			<article role="article" aria-live="assertive" class="search-result-view clearfix">
 				<h3 class="results-text">Here are the results of your search for: <em class="book-title"></em></h3>
 				<p class="results-text">click one that sparks your interest</p>
 				
 			<ul class="wrapper results-view" aria-live="assertive" role="list" hidden></ul>
 			
-		</article>
-		<article role="article" aria-live="assertive" class="tastedive-search-result-view clearfix">
-			<h3 class="results-text">If you liked: <em class="book-title"></em> than you might also enjoy one of these books</h3>
-			<p class="results-text">click one that sparks your interest</p>
-		<ul class="wrapper td-results" aria-live="assertive" role="list" hidden></ul>
+			</article>
+			<article role="article" aria-live="assertive" class="tastedive-search-result-view clearfix">
+				<h3 class="results-text">If you liked: <em class="book-title"></em> than you might also enjoy one of these books</h3>
+				<p class="results-text">click one that sparks your interest</p>
+				<ul class="wrapper td-results" aria-live="assertive" role="list" hidden></ul>
 		
-	</article>
-</section>
+			</article>
+
+			<!-- Error View -->
+			<div class="error-view" aria-live="polite">
+				<h2 class="results-text">Oh No! Something went wrong and we could not complete the search</h2>
+				<p class="results-text">Please try a new search</p>
+			</div>
+	</section>
 <!-- end of serarch - result -view -->
 </main>
 <footer role="contentinfo">
